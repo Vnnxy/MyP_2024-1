@@ -5,8 +5,11 @@
  */
 public abstract class Fighter {
 
+    /* The fighter's health points */
     private int hP;
+    /* The fighter's defense */
     private int defense;
+    /* The fighter's damage points */
     private int dP;
 
     /**

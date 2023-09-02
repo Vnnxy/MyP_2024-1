@@ -1,15 +1,24 @@
+import java.util.ArrayList;
+
 /**
  * Class representing the fighter "Meganman" that
  * the players will be able to choose from. Extends @link Fighter.
  */
 public class Meganman extends Fighter {
 
+    /* Meganman's health points */
     private int hP = 700;
+    /* Meganman's defense */
     private int defense = 40;
+    /* Meganman's damage points */
     private int dP = 32;
+    /* Meganman's current state */
+    private MeganManTransformation state;
+    /* Meganman's observers */
+    private ArrayList<Observer> observers;
 
     /**
-     * The method fighters will be using to attack others. Registers and reduces
+     * The method meganman will be using to attack others. Registers and reduces
      * health.
      * 
      * @param fighter the fighter that'll be attacked, thus receiving damage.
@@ -18,7 +27,7 @@ public class Meganman extends Fighter {
     }
 
     /**
-     * The method fighters will be using to defend from others. It will reduce the
+     * The method meganman will be using to defend from others. It will reduce the
      * damage taken.
      */
     public void defend() {
@@ -33,7 +42,7 @@ public class Meganman extends Fighter {
     }
 
     /**
-     * A getter for the fighter's health.
+     * A getter for meganman's health.
      * 
      * @return The hP left from the fighter.
      */
@@ -42,7 +51,7 @@ public class Meganman extends Fighter {
     }
 
     /**
-     * A getter for the fighter's defense.
+     * A getter for meganman's defense.
      * 
      * @return The current defense of the fighter.
      */
@@ -51,11 +60,20 @@ public class Meganman extends Fighter {
     }
 
     /**
-     * A getter for the fighter's damage.
+     * A getter for meganman's damage.
      * 
      * @return The current dP of the fighter.
      */
     public int getDamage() {
         return dP;
+    }
+
+    /**
+     * The method meganman will be using when transforming. It gives him some perks.
+     * 
+     * @param robot the robot that meganman will be tranforming.
+     */
+    public void transform(MeganManTransformation robot) {
+
     }
 }
