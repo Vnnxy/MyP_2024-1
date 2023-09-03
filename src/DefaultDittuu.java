@@ -12,7 +12,7 @@ public class DefaultDittuu implements DittuuTransformation {
      * @return the modified attack made
      */
     public String attack() {
-        return "Does nothing";
+        return "but he cant attack";
     }
 
     /**
@@ -21,7 +21,7 @@ public class DefaultDittuu implements DittuuTransformation {
      * @return the defense made
      */
     public String defend() {
-        return "Does not defend";
+        return "but he cannot defend himself";
     }
 
     /**
