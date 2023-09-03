@@ -1,9 +1,11 @@
 import java.util.ArrayList;
+
 /**
  * Class for the arena where the fights will take place.
- *  @author equipo.
+ * 
+ * @author equipo.
  */
-public class Arena implements Subject{
+public class Arena implements Subject {
 
     /* The fighter kirby */
     Korby korby;
@@ -11,13 +13,19 @@ public class Arena implements Subject{
     MeganMan meganman;
     /* The fighter dittuu */
     Fighter dittuu;
-    /* List of Observers*/
+    /* List of Observers */
     ArrayList<Observer> observers;
 
-    public Arena(){
-	observers = new ArrayList<>();
-	korby = new Korby();
-	meganman= new MeganMan();
+    /**
+     * Constructor for Arena.
+     * 
+     * @param korby    Our fighter named korby
+     * @param meganman Our fighter named meganman
+     */
+    public Arena(Korby korby, MeganMan meganman) {
+        observers = new ArrayList<>();
+        this.korby = korby;
+        this.meganman = meganman;
     }
 
     /**
@@ -25,8 +33,8 @@ public class Arena implements Subject{
      * 
      * @param observer The observer we will be registering.
      */
-    public void registerObserver(Observer observer){
-	boolean b = observers.add(observer);
+    public void registerObserver(Observer observer) {
+        boolean b = observers.add(observer);
     }
 
     /**
@@ -34,8 +42,8 @@ public class Arena implements Subject{
      * 
      * @param observer The observer we will be removing.
      */
-    public void removeObserver(Observer observer){
-	boolean b = observers.remove(observer);
+    public void removeObserver(Observer observer) {
+        boolean b = observers.remove(observer);
     }
 
     /**
@@ -43,12 +51,12 @@ public class Arena implements Subject{
      * 
      * @param event   The events/actions the fighter takes.
      * @param fighter The fighter taking the actions.
-     * @param victim The fighter which was attacked
+     * @param victim  The fighter which was attacked
      */
-    public void notifyAttack(String event, Fighter fighter, Fighter victim){
-	for (Observer observer : observers){
-	    observer.announceAttack(event,fighter,victim);
-	}
+    public void notifyAttack(String event, Fighter fighter, Fighter victim) {
+        for (Observer observer : observers) {
+            observer.announceAttack(event, fighter, victim);
+        }
     }
 
     /**
@@ -57,68 +65,69 @@ public class Arena implements Subject{
      * @param event   The events/actions the fighter takes.
      * @param fighter The fighter taking the actions.
      */
-    public void notifyAction(String event, Fighter fighter){
-	for (Observer observer : observers){
-	    observer.announce(event,fighter);
-	}
+    public void notifyAction(String event, Fighter fighter) {
+        for (Observer observer : observers) {
+            observer.announce(event, fighter);
+        }
     }
 
     /**
      * Notifies an event.
      * 
-     * @param event   The events.
+     * @param event The events.
      */
-    public void notifyEvent(String event){
-	for (Observer observer : observers){
-	    observer.announceEvent(event);
-	}
+    public void notifyEvent(String event) {
+        for (Observer observer : observers) {
+            observer.announceEvent(event);
+        }
     }
 
-    private void newAttack(Fighter a, Fighter v){
-	String event = a.attack(v);
-	notifyAttack(event,a,v);
-	if (!(v.isAlive()))
-	    notifyAction(v.toString()+" is dead",v);
+    private void newAttack(Fighter a, Fighter v) {
+        String event = a.attack(v);
+        notifyAttack(event, a, v);
+        if (!(v.isAlive()))
+            notifyAction(v.toString() + " is dead", v);
     }
 
-    private void newDefense(Fighter a){
-	String event = a.defend();
-	notifyAction(event,a);
+    private void newDefense(Fighter a) {
+        String event = a.defend();
+        notifyAction(event, a);
     }
 
-    private void stopDefense(Fighter a){
-	a.stopDefense();
-	notifyAction(a.toString()+" stop defending", a);
+    private void stopDefense(Fighter a) {
+        a.stopDefense();
+        notifyAction(a.toString() + " stopped defending", a);
     }
-
 
     /**
      * The simulation of a fight.
      * 
      */
     public void fight1() {
-	newAttack(korby,meganman);
-	newAttack(korby,meganman);
-	newAttack(korby,meganman);
-	newDefense(korby);
-	stopDefense(korby);
-	KorbyFood sword = new Sword();
-	notifyEvent("A new "+sword.toString() + " appeared");
-	String s = korby.transform(sword);
-	notifyEvent(s);
-	newAttack(korby,meganman);
+        newAttack(korby, meganman);
+        newAttack(korby, meganman);
+        newAttack(korby, meganman);
+        newDefense(korby);
+        stopDefense(korby);
+        KorbyFood sword = new Sword();
+        notifyEvent("A new " + sword.toString() + " appeared");
+        String s = korby.transform(sword);
+        notifyAction(s, korby);
+        newAttack(korby, meganman);
     }
 
     /**
      * The simulation of a fight.
      * 
      */
-    public void fight2() {}
+    public void fight2() {
+    }
 
     /**
      * The simulation of a fight.
      * 
      */
-    public void fight3() {}
+    public void fight3() {
+    }
 
 }

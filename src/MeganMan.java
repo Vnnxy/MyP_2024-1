@@ -11,15 +11,15 @@ public class MeganMan extends Fighter {
     private MeganManTransformation state;
 
     /**
-     *Builds a new MeganMan
+     * Builds a new MeganMan
      */
-    public MeganMan(){
-	this.hP = 100;
-	this.defenseMode = false;
-	this.defense = 4;
-	this.dP = 15;
-	this.state = new DefaultMeganMan();
-    } 
+    public MeganMan() {
+        this.hP = 100;
+        this.defenseMode = false;
+        this.defense = 4;
+        this.dP = 15;
+        this.state = new DefaultMeganMan();
+    }
 
     /**
      * The method meganman will be using to attack others. Registers and reduces
@@ -29,9 +29,9 @@ public class MeganMan extends Fighter {
      * @return The attack made.
      */
     public String attack(Fighter fighter) {
-	String attack = state.attack();
-	fighter.receivedDamage(this.dP);
-	return "MeganMan attacked "+ fighter.toString()+ " "+ attack;
+        String attack = state.attack();
+        fighter.receivedDamage(this.dP);
+        return "MeganMan attacked " + fighter.toString() + " " + attack;
     }
 
     /**
@@ -39,9 +39,9 @@ public class MeganMan extends Fighter {
      * damage taken.
      */
     public String defend() {
-	String defend = state.defend();
-	this.defenseMode = true;
-	return "MeganMan defends" + defend;
+        String defend = state.defend();
+        this.defenseMode = true;
+        return "MeganMan defends " + defend;
     }
 
     /**
@@ -59,14 +59,14 @@ public class MeganMan extends Fighter {
      * @param robot the robot that meganman will be tranforming.
      */
     public String transform(MeganManTransformation robot) {
-	this.state = robot;
-	this.hP = hP + state.getBonusHealth();
-	this.defense = defense + state.getBonusDefense();
-	this.dP = dP + state.getBonusDamage();
-	return "MegaMan has transform to " + state.toString() + "and became " +state.getState();
+        this.state = robot;
+        this.hP = hP + state.getBonusHealth();
+        this.defense = defense + state.getBonusDefense();
+        this.dP = dP + state.getBonusDamage();
+        return "MegaMan has transform to " + state.toString() + "and became " + state.getState();
     }
 
-    public String toString(){
-	return state.getState();
+    public String toString() {
+        return state.getState();
     }
 }

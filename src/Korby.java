@@ -11,15 +11,15 @@ public class Korby extends Fighter {
     private KorbyFood state;
 
     /**
-     *Builds a new Korby
+     * Builds a new Korby
      */
-    public Korby(){
-	this.hP = 100;
-	this.defenseMode = false;
-	this.defense = 2;
-	this.dP = 20;
-	this.state = new DefaultKorby();
-    } 
+    public Korby() {
+        this.hP = 100;
+        this.defenseMode = false;
+        this.defense = 2;
+        this.dP = 20;
+        this.state = new DefaultKorby();
+    }
 
     /**
      * The method korby will be using to attack others. Registers and reduces
@@ -29,9 +29,9 @@ public class Korby extends Fighter {
      * @return The attack made.
      */
     public String attack(Fighter fighter) {
-	String attack = state.attack();
-	fighter.receivedDamage(this.dP);
-	return "Korby attacked "+ fighter.toString() + " " + attack;
+        String attack = state.attack();
+        fighter.receivedDamage(this.dP);
+        return "Korby attacked " + fighter.toString() + " " + attack;
     }
 
     /**
@@ -39,9 +39,9 @@ public class Korby extends Fighter {
      * damage taken.
      */
     public String defend() {
-	String defend = state.defend();
-	this.defenseMode = true;
-	return "Korby defends" + defend;
+        String defend = state.defend();
+        this.defenseMode = true;
+        return "Korby defends " + defend;
     }
 
     /**
@@ -59,14 +59,14 @@ public class Korby extends Fighter {
      * @param food the food that korby will absorb.
      */
     public String transform(KorbyFood food) {
-	this.state = food;
-	this.hP = hP + state.getBonusHealth();
-	this.defense = defense + state.getBonusDefense();
-	this.dP = dP + state.getBonusDamage();
-	return "Korby has eaten a " + state.toString() + " and became " +state.getState();
+        this.state = food;
+        this.hP = hP + state.getBonusHealth();
+        this.defense = defense + state.getBonusDefense();
+        this.dP = dP + state.getBonusDamage();
+        return "Korby has eaten a " + state.toString() + " and became " + state.getState();
     }
 
-    public String toString(){
-	return state.getState();
+    public String toString() {
+        return state.getState();
     }
 }
