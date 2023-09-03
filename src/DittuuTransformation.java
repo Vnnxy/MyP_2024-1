@@ -1,6 +1,5 @@
 /**
- * Interface that states the methods use for any Dittuu transformation.
- * 
+ * Interface that states the methods use for any form of Dittuu.
  * @author equipo.
  */
 
@@ -27,7 +26,8 @@ public interface DittuuTransformation {
     public String toString();
 
     /**
-     * @return the state Dittuu is
+
+     * @return the state dittuu is
      */
     public String getState();
 

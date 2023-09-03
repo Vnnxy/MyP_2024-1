@@ -26,6 +26,7 @@ public class Arena implements Subject {
         observers = new ArrayList<>();
         this.korby = korby;
         this.meganman = meganman;
+
     }
 
     /**
