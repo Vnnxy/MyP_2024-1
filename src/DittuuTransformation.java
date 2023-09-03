@@ -26,6 +26,7 @@ public interface DittuuTransformation {
     public String toString();
 
     /**
+
      * @return the state dittuu is
      */
     public String getState();
