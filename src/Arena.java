@@ -12,7 +12,7 @@ public class Arena implements Subject {
     /* The fighter meganman */
     MeganMan meganman;
     /* The fighter dittuu */
-    Fighter dittuu;
+    Dittuu dittuu;
     /* List of Observers */
     ArrayList<Observer> observers;
 
@@ -22,11 +22,11 @@ public class Arena implements Subject {
      * @param korby    Our fighter named korby
      * @param meganman Our fighter named meganman
      */
-    public Arena(Korby korby, MeganMan meganman) {
+    public Arena(Korby korby, MeganMan meganman, Dittuu dittuu) {
         observers = new ArrayList<>();
         this.korby = korby;
         this.meganman = meganman;
-
+        this.dittuu = dittuu;
     }
 
     /**
