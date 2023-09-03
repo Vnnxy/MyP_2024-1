@@ -63,10 +63,17 @@ public class Viewer implements Observer {
      * @param fighter the fighter that´s involved.
      */
     public void announce(String event, Fighter fighter) {
+
         if (fighter == (favorited))
-            log("Your chosen fighter " + event);
+            log("Your CHOSEN fighter " + event);
         else
             log(event);
+
+        if (event.contains("winner")) {
+            endLog();
+            return;
+        }
+
     }
 
     /**
@@ -76,8 +83,6 @@ public class Viewer implements Observer {
      */
     public void announceEvent(String event) {
         log(event);
-        if (event.contains("is the winner"))
-            endLog();
     }
 
     /**

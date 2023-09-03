@@ -114,6 +114,7 @@ public class Arena implements Subject {
         String s = korby.transform(sword);
         notifyAction(s, korby);
         newAttack(korby, meganman);
+        notifyAction("Korby is the winner!", korby);
     }
 
     /**

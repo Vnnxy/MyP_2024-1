@@ -10,9 +10,5 @@ public class Main {
 		Viewer view2 = new Viewer(meganman, "User6272", arena);
 		Viewer view3 = new Viewer(korby, "User0293", arena);
 		arena.fight1();
-		view.endLog();
-		view1.endLog();
-		view2.endLog();
-		view3.endLog();
 	}
 }
