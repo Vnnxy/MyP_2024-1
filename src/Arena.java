@@ -10,14 +10,15 @@ public class Arena implements Subject{
     /* The fighter meganman */
     MeganMan meganman;
     /* The fighter dittuu */
-    Fighter dittuu;
+    Dittuu dittuu;
     /* List of Observers*/
     ArrayList<Observer> observers;
 
     public Arena(){
 	observers = new ArrayList<>();
 	korby = new Korby();
-	meganman= new MeganMan();
+	meganman = new MeganMan();
+        dittuu = new Dittuu();
     }
 
     /**
