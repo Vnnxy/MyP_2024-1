@@ -41,7 +41,7 @@ public class Dittuu extends Fighter {
     public String defend() {
 	String defend = state.defend();
 	this.defenseMode = true;
-	return "Dittuu defends" + defend;
+	return "Dittuu defends " + defend;
     }
 
     /**

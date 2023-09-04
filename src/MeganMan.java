@@ -63,7 +63,7 @@ public class MeganMan extends Fighter {
         this.hP = hP + state.getBonusHealth();
         this.defense = defense + state.getBonusDefense();
         this.dP = dP + state.getBonusDamage();
-        return "MegaMan has transform to " + state.toString() + "and became " + state.getState();
+        return "MegaMan has transform to " + state.toString() + " and became " + state.getState();
     }
 
     public String toString() {

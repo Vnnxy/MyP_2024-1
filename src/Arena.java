@@ -83,6 +83,11 @@ public class Arena implements Subject {
         }
     }
 
+    /**
+     * Private method where a fighter attacks, notifies the observers
+     * @param a The attackant
+     * @param v The victim of the attack
+     */
     private void newAttack(Fighter a, Fighter v) {
         String event = a.attack(v);
         notifyAttack(event, a, v);
@@ -90,14 +95,30 @@ public class Arena implements Subject {
             notifyAction(v.toString() + " is dead", v);
     }
 
+    /**
+     * Private method where a fighter defends, notifies the observers
+     * @param a The fighter
+     */
     private void newDefense(Fighter a) {
         String event = a.defend();
         notifyAction(event, a);
     }
 
+    /**
+     * Private method where a fighter stops defending, notifies the observers
+     * @param a The fighter
+     */
     private void stopDefense(Fighter a) {
         a.stopDefense();
         notifyAction(a.toString() + " stopped defending", a);
+    }
+
+    /**
+     * Private method to notify the appearance of a new item
+     * @param event the name of the item
+     */
+    private void newAppearance(String event){
+	notifyEvent("A new " + event  + " appeared");
     }
 
     /**
@@ -105,17 +126,37 @@ public class Arena implements Subject {
      * 
      */
     public void fight1() {
+	notifyEvent("The fight begins");
         newAttack(korby, meganman);
         newAttack(korby, meganman);
+	newAttack(meganman,dittuu);
         newAttack(korby, meganman);
         newDefense(korby);
+	newDefense(dittuu);
         stopDefense(korby);
         KorbyFood sword = new Sword();
-        notifyEvent("A new " + sword.toString() + " appeared");
+	newAppearance(sword.toString());
         String s = korby.transform(sword);
         notifyAction(s, korby);
+	DittuuTransformation espion = new Espion();
+	newAppearance(espion.toString());
         newAttack(korby, meganman);
-        notifyAction("Korby is the winner!", korby);
+	s = dittuu.transform(espion);
+	notifyAction(s,dittuu);
+	newAttack(korby,dittuu);
+	newAttack(korby,dittuu);
+	KorbyFood car = new Car();
+	newAppearance(car.toString());
+        s = korby.transform(car);
+        notifyAction(s, korby);
+	newAttack(dittuu,korby);
+	newAttack(korby,dittuu);
+	newAttack(korby,dittuu);
+	newDefense(korby);
+	newAttack(dittuu,korby);
+	newAttack(korby,dittuu);
+	newAttack(korby,dittuu);
+	notifyAction("Korby is the winner!", korby);
     }
 
     /**
@@ -123,6 +164,30 @@ public class Arena implements Subject {
      * 
      */
     public void fight2() {
+	notifyEvent("The fight begins");
+        newAttack(korby, meganman);
+	newAttack(meganman,dittuu);
+	MeganManTransformation jet = new JetMan();
+	newAppearance(jet.toString());
+        String s = meganman.transform(jet);
+        notifyAction(s, meganman);
+        newAttack( meganman,korby);
+        newDefense(korby);
+	newDefense(dittuu);
+	newAttack(meganman,dittuu);
+        newAttack(korby, meganman);
+	KorbyFood cone = new Cone();
+	newAppearance(cone.toString());
+        s = korby.transform(cone);
+        notifyAction(s, korby);
+	newDefense(meganman);
+	newAttack(meganman,dittuu);
+	newAttack(meganman,korby);
+	stopDefense(korby);
+	newAttack(meganman,dittuu);
+	newAttack(meganman,korby);
+	newAttack(meganman,korby);
+	notifyAction("MeganMan is the winner!", meganman);
     }
 
     /**
@@ -130,6 +195,34 @@ public class Arena implements Subject {
      * 
      */
     public void fight3() {
+	notifyEvent("The fight begins");
+	newAttack(meganman,dittuu);
+	MeganManTransformation diamond = new DiamondIce();
+	newAppearance(diamond.toString());
+        String s = meganman.transform(diamond);
+        notifyAction(s, meganman);
+        newAttack(meganman,korby);
+	DittuuTransformation miu = new Miu();
+	newAppearance(miu.toString());
+        newAttack(korby, meganman);
+	s = dittuu.transform(miu);
+	notifyAction(s,dittuu);
+        newDefense(korby);
+	newAttack(dittuu,korby);
+	MeganManTransformation absolute = new AbsoluteZero();
+	newAppearance(absolute.toString());
+        newAttack(dittuu,korby);
+	s = meganman.transform(absolute);
+	notifyAction(s, meganman);
+	newDefense(meganman);
+	newAttack(dittuu,meganman);
+	DittuuTransformation wulu = new Wulu();
+	newAppearance(wulu.toString());
+	s = dittuu.transform(wulu);
+	notifyAction(s,dittuu);
+	newAttack(dittuu,meganman);
+	notifyAction("Dittuu is the winner!", dittuu);
+	
     }
 
 }
