@@ -1,5 +1,3 @@
-package practica2.src;
-
 public class GrassBurger extends Burger {
     @Override
     public String prepareProtein() {

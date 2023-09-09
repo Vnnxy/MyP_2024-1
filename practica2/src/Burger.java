@@ -1,5 +1,3 @@
-package practica2.src;
-
 public abstract class Burger {
 
     public int id;
