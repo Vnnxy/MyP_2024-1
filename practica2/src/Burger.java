@@ -12,7 +12,6 @@ public abstract class Burger {
         spreadMayonnaise();
         addMustard();
         addCheese();
-        prepareProtein();
         String protein = prepareProtein();
         addProtein(protein);
         addCheese();
@@ -36,7 +35,7 @@ public abstract class Burger {
     public abstract String prepareProtein();
 
     private void addProtein(String protein) {
-        System.out.println("After carefully cooking your" + protein + "time to assemble");
+        System.out.println("After carefully cooking your " + protein + " and it's time to assemble");
     }
 
     private void addCheese() {
@@ -47,7 +46,7 @@ public abstract class Burger {
     }
 
     private void addVeggies() {
-        System.out.println("You got to eat your veggies, grandson");
+        System.out.println("You got to eat your veggies said grandma");
     }
 
     private void addKetchup() {

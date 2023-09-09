@@ -1,7 +1,7 @@
 public class Main {
 
     public static void main(String[] args) {
-        WagyuBurger test = new WagyuBurger();
+        ChickenBurger test = new ChickenBurger();
         test.prepareBurger();
     }
 
