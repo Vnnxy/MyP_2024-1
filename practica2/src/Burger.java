@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public abstract class Burger {
 
     public int id;
@@ -11,9 +13,9 @@ public abstract class Burger {
         prepareBread();
         spreadMayonnaise();
         addMustard();
-        addCheese();
         String protein = prepareProtein();
         addProtein(protein);
+        askCustomerCheese();
         addCheese();
         addVeggies();
         addKetchup();
@@ -38,11 +40,23 @@ public abstract class Burger {
         System.out.println("After carefully cooking your " + protein + " and it's time to assemble");
     }
 
-    private void addCheese() {
-        if (hasCheese)
-            System.out.println("Melting the cheese and adding it for you");
-        else
-            System.out.println("No cheese for the weak");
+    public abstract void addCheese();
+
+    public void askCustomerCheese() {
+        String message = "Burgers usually have cheese in them, would you like some? \n [yes]   [no]";
+        System.out.println(message);
+        Scanner in = new Scanner(System.in);
+        String response = in.nextLine();
+
+        if (response.equals("yes")) {
+            hasCheese = true;
+        } else if (response.equals("no"))
+            hasCheese = false;
+        else {
+            System.out.println("I don't understand, is it a yes or a no?");
+            askCustomerCheese();
+        }
+
     }
 
     private void addVeggies() {
@@ -56,5 +70,7 @@ public abstract class Burger {
     private void addBread() {
         System.out.println("Now the other bun, and it's a BURGER");
     }
+
+    public abstract String toString();
 
 }
