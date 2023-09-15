@@ -1,6 +1,14 @@
+/**
+ * Class that represents the sleep sate of the robot
+ * @author equipo
+ */
 public class CookingState implements RobotState {
     private Robot robot;
 
+    /**
+     * Builds a new state
+     * @param robot the robot
+     */
     public CookingState(Robot robot) {
         this.robot = robot;
     }
@@ -45,7 +53,8 @@ public class CookingState implements RobotState {
     public void cook() {
         System.out.println(
                 "I'm going to cook the perfect dish");
-        robot.setCurrentState(robot.getCookingState());
+	robot.getBurger().prepareBurger();
+        robot.setCurrentState(robot.getServingState());
     }
 
     /**
@@ -54,6 +63,14 @@ public class CookingState implements RobotState {
      */
     public void serve() {
         System.out.println("I'm still making this masterpiece... oh it got a little bit burned. It's your fault.");
+    }
+
+     /**
+     * Method that returns a String representation of the robot
+     * @return String
+     */
+    public String toString(){
+	return "Ready to cook";
     }
 
 }

@@ -41,4 +41,10 @@ public interface RobotState {
      */
     public void serve();
 
+    /**
+     * Method that returns a String representation of the robot
+     * @return String
+     */
+    public String toString();
+
 }

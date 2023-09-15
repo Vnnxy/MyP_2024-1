@@ -34,15 +34,13 @@ public class Robot {
 	burgers = new ArrayList<>();
 	for (Iterator<Burger> iterator : args)
 	    burgers.add(iterator);
-	/* Para que compile mientras hacemos los estados
-	sleep = new Sleep(this);
-	cook = new Cook(this);
-	walk = new Walk(this);
-	on = new On(this);
-	displayMenuAndTakeOrder = new DisplayMenuAndTakeOrder(this);
-	serve = new Serve(this);
+	sleep = new SleepState(this);
+	cook = new CookingState(this);
+	walk = new WalkingState(this);
+	on = new ActiveState(this);
+	displayMenuAndTakeOrder = new DisplayingAndTakingOrderState(this);
+	serve = new ServingState(this);
 	currentState= sleep;
-	*/	
     }
 
     /**
@@ -167,20 +165,27 @@ public class Robot {
     }
 
     /**
-     * This method searches the burger with the given id
-     * @param id the burger's id
+     * Method that sets the robot´s burger.
+     * @param  the burger 
      */
-    public void searchBurger(int id){
-	for (Iterator<Burger> iterator : burgers){
-	    while (iterator.hasNext()){
-		Burger b = iterator.next();
-		if (b.getId() == id){
-		    this.burger = b;
-		    return;
-		}
-	    }
-	}
+    public void setBurger(Burger burger){
+	this.burger = burger;
+    }
+
+    /**
+     * Method that gets the robot´s burger.
+     * @return  the burger 
+     */
+    public Burger getBurger(){
+	return this.burger;
     }
     
+    /**
+     * Method that returns a String representation of the robot
+     * @return String
+     */
+    public String toString(){
+	return currentState.toString();
+    }
     
 }

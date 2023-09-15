@@ -102,7 +102,6 @@ public abstract class Burger {
             System.out.println("I don't understand, is it a yes or a no?");
             askCustomerCheese();
         }
-
     }
 
     /**
@@ -132,7 +131,7 @@ public abstract class Burger {
      * @return String The string representation of the burger.
      */
     public String toString() {
-        String rep = "Id: %d , Name: %s, Price:$ %f \n Menu: %s  Description: %s, Vegetarian: %s";
+        String rep = "Id: %d , Name: %s, Price:$ %.2f \n Menu: %s  Description: %s, Vegetarian: %s";
         String burgerString = String.format(rep, id, name, price, menu, description, String.valueOf(isVegetarian));
         return burgerString;
     }

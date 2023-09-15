@@ -1,6 +1,14 @@
+/**
+ * Class that represents the sleep sate of the robot
+ * @author equipo
+ */
 public class SleepState implements RobotState {
     private Robot robot;
 
+    /**
+     * Builds a new state
+     * @param robot the robot
+     */
     public SleepState(Robot robot) {
         this.robot = robot;
     }
@@ -52,6 +60,14 @@ public class SleepState implements RobotState {
      */
     public void serve() {
         System.out.println("I'm sleeping, learn how to use the menu... Serves you right!");
+    }
+
+    /**
+     * Method that returns a String representation of the robot
+     * @return String
+     */
+    public String toString(){
+	return "Sleeping Zzz";
     }
 
 }

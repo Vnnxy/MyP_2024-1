@@ -1,6 +1,14 @@
+/**
+ * Class that represents the Active sate of the robot
+ * @author equipo
+ */
 public class ActiveState implements RobotState {
     private Robot robot;
 
+    /**
+     * Builds a new state
+     * @param robot the robot
+     */
     public ActiveState(Robot robot) {
         this.robot = robot;
     }
@@ -36,7 +44,7 @@ public class ActiveState implements RobotState {
      * 
      */
     public void displayMenuAndTakeOrder() {
-        System.out.println("I SAID I'M COMING");
+        System.out.println("I am not even close to you!");
     }
 
     /**
@@ -54,6 +62,14 @@ public class ActiveState implements RobotState {
      */
     public void serve() {
         System.out.println("Im not serving you yet!");
+    }
+
+    /**
+     * Method that returns a String representation of the robot
+     * @return String
+     */
+    public String toString(){
+	return "Active and ready to go";
     }
 
 }

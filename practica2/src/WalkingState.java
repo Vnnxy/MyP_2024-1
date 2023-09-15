@@ -1,6 +1,14 @@
+/**
+ * Class that represents the walking sate of the robot
+ * @author equipo
+ */
 public class WalkingState implements RobotState {
     private Robot robot;
 
+    /**
+     * Builds a new state
+     * @param robot the robot
+     */
     public WalkingState(Robot robot) {
         this.robot = robot;
     }
@@ -27,7 +35,7 @@ public class WalkingState implements RobotState {
      * 
      */
     public void walk() {
-        System.out.println("Im almost there!!");
+        System.out.println("Im almost there... I'm here!!");
         robot.setCurrentState(robot.getDisplayingAndTakingOrderState());
     }
 
@@ -45,7 +53,7 @@ public class WalkingState implements RobotState {
      */
     public void cook() {
         System.out.println(
-                "I ain't no mind reader. You look like you would order nuggets in a steak house, still, there are procedures.");
+                "I can't cook while walking. Please WAIT");
     }
 
     /**
@@ -54,6 +62,14 @@ public class WalkingState implements RobotState {
      */
     public void serve() {
         System.out.println("Im not serving you yet!");
+    }
+
+    /**
+     * Method that returns a String representation of the robot
+     * @return String
+     */
+    public String toString(){
+	return "Walking, running";
     }
 
 }

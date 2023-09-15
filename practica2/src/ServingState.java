@@ -1,6 +1,14 @@
+/**
+ * Class that represents the sleep sate of the robot
+ * @author equipo
+ */
 public class ServingState implements RobotState {
     private Robot robot;
 
+    /**
+     * Builds a new state
+     * @param robot the robot
+     */
     public ServingState(Robot robot) {
         this.robot = robot;
     }
@@ -10,7 +18,7 @@ public class ServingState implements RobotState {
      * 
      */
     public void sleep() {
-        System.out.println("I can't go to sleep now. I gotta earn some cash you know.");
+        System.out.println("I can't go to sleep now. I still have your dish");
     }
 
     /**
@@ -27,7 +35,7 @@ public class ServingState implements RobotState {
      */
     public void walk() {
         System.out.println(
-                "Sir, I can't go further");
+                "Sir, I can't go further, I have your burger ready");
     }
 
     /**
@@ -35,7 +43,7 @@ public class ServingState implements RobotState {
      * 
      */
     public void displayMenuAndTakeOrder() {
-        System.out.println("You already made a choice. STICK with IT");
+        System.out.println("You already made a choice. STICK with IT, it's already cooked");
     }
 
     /**
@@ -53,7 +61,16 @@ public class ServingState implements RobotState {
      */
     public void serve() {
         System.out.println("Here you go!. Call me if you need something.");
+	System.out.println("Im going back to the charge station, I´m sleepy");
         robot.setCurrentState(robot.getSleepingState());
+    }
+
+    /**
+     * Method that returns a String representation of the robot
+     * @return String
+     */
+    public String toString(){
+	return "Ready to serve your burger";
     }
 
 }

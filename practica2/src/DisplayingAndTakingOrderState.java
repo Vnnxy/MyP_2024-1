@@ -1,6 +1,15 @@
+import java.util.Scanner;
+/**
+ * Class that represents the displying and taking order sate of the robot
+ * @author equipo
+ */
 public class DisplayingAndTakingOrderState implements RobotState {
     private Robot robot;
 
+    /**
+     * Builds a new state
+     * @param robot the robot
+     */
     public DisplayingAndTakingOrderState(Robot robot) {
         this.robot = robot;
     }
@@ -36,7 +45,7 @@ public class DisplayingAndTakingOrderState implements RobotState {
      */
     public void displayMenuAndTakeOrder() {
         System.out.println("Here's the menu:");
-        robot.setCurrentState(robot.getDisplayingAndTakingOrderState());
+	this.robot.printMenu();
     }
 
     /**
@@ -54,6 +63,14 @@ public class DisplayingAndTakingOrderState implements RobotState {
      */
     public void serve() {
         System.out.println("Taraa, here is some AIR. I don't even know what you want!");
+    }
+
+    /**
+     * Method that returns a String representation of the robot
+     * @return String
+     */
+    public String toString(){
+	return "Attending you";
     }
 
 }
