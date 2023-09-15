@@ -20,9 +20,9 @@ public class SpecialMenu implements Menu {
      */
     public SpecialMenu() {
         burgers = new Hashtable<>();
-        burgers.put(1, new StartupBurger());
-        burgers.put(2, new UniqueBurger());
-        burgers.put(3, new WagyuBurger());
+        burgers.put(1, new StartupBurger(this.menuDescription()));
+        burgers.put(2, new UniqueBurger(this.menuDescription()));
+        burgers.put(3, new WagyuBurger(this.menuDescription()));
     }
 
     /**
@@ -32,7 +32,7 @@ public class SpecialMenu implements Menu {
      */
     @Override
     public String menuDescription() {
-        return "The fancy,clssy, special menu";
+        return "The fancy,classy, special menu";
     }
 
     /**

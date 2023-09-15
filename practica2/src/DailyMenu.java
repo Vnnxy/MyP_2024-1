@@ -20,9 +20,9 @@ public class DailyMenu implements Menu {
      */
     public DailyMenu() {
         burgers = new ArrayList<Burger>();
-        burgers.add(new GrassBurger());
-        burgers.add(new InsectBurger());
-        burgers.add(new SoyBurger());
+        burgers.add(new GrassBurger(this.menuDescription()));
+        burgers.add(new InsectBurger(this.menuDescription()));
+        burgers.add(new SoyBurger(this.menuDescription()));
     }
 
     /**

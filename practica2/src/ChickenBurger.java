@@ -5,20 +5,18 @@
  */
 public class ChickenBurger extends Burger {
 
-    /* The id of the burger. It is unique */
-    public int id = 2001;
-    /* The monetary price of the item */
-    public double price = 4;
-    /* The description of the burger */
-    public String description = "A chicken burger";
-    /* The name of the Burger */
-    public String name = "Chicken Burger";
-    /* This tells us if the burger will contain cheese or not */
-    public boolean hasCheese;
-    /* This will tell us if the burger is vegetarian or not */
-    public boolean isVegetarian = false;
-    /* The name of the menu the burger is in */
-    public String menu = "General Menu";
+    /**
+     * Builds a new Burger
+     * @param menu String that represents the menu
+     */
+    public ChickenBurger(String menu){
+	this.id = 2001;
+	this.price = 4;
+	this.description = "A chicken burger";
+	this.name = "Chicken Burger";
+	this.isVegetarian = false;
+	this.menu = menu;
+    }
 
     /**
      * Method for preparing protein in a specific way unique to the burger.
@@ -38,16 +36,5 @@ public class ChickenBurger extends Burger {
             System.out.println("Adding cheese to create a delicious chicken parm");
         else
             System.out.println("No cheese for the weak and... for the chicken I guess");
-    }
-
-    /**
-     * Method that gives us the string representation of the burger.
-     * 
-     * @return String The string representation of the burger.
-     */
-    public String toString() {
-        String rep = "Id: %d , Name: %s, Price:$ %f, Description: %s, Vegetarian: %s";
-        String burgerString = String.format(rep, id, name, price, description, String.valueOf(isVegetarian));
-        return burgerString;
     }
 }

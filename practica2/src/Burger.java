@@ -8,19 +8,20 @@ import java.util.Scanner;
 public abstract class Burger {
 
     /* The id of the burger. It is unique */
-    public int id;
+    protected int id;
     /* The monetary price of the item */
-    public double price;
+    protected double price;
     /* The description of the burger */
-    public String description;
+    protected String description;
     /* The name of the Burger */
-    public String name;
+    protected String name;
     /* This tells us if the burger will contain cheese or not */
-    public boolean hasCheese;
+    protected boolean hasCheese;
     /* This will tell us if the burger is vegetarian or not */
-    public boolean isVegetarian;
+    protected boolean isVegetarian;
     /* The name of the menu the burger is in */
-    public String menu;
+    protected String menu;
+
 
     /**
      * The method that creates the burger. It calls all the methods needed to make
@@ -70,6 +71,7 @@ public abstract class Burger {
 
     /**
      * The method for adding the protein to the burger
+     * @param protein the protein String
      */
     private void addProtein(String protein) {
         System.out.println("After carefully cooking your " + protein + " and it's time to assemble");
@@ -130,9 +132,17 @@ public abstract class Burger {
      * @return String The string representation of the burger.
      */
     public String toString() {
-        String rep = "Id: %d , Name: %s, Price:$ %f, Description: %s, Vegetarian: %s";
-        String burgerString = String.format(rep, id, name, price, description, String.valueOf(isVegetarian));
+        String rep = "Id: %d , Name: %s, Price:$ %f \n Menu: %s  Description: %s, Vegetarian: %s";
+        String burgerString = String.format(rep, id, name, price, menu, description, String.valueOf(isVegetarian));
         return burgerString;
+    }
+
+    /**
+     * Method that returns the burger's id
+     * @return int the id
+     */
+    public int getId(){
+	return this.id;
     }
 
 }

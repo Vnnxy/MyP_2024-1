@@ -5,20 +5,18 @@
  */
 public class InsectBurger extends Burger {
 
-    /* The id of the burger. It is unique */
-    public int id = 1002;
-    /* The monetary price of the item */
-    public double price = 8;
-    /* The description of the burger */
-    public String description = "An insect burger";
-    /* The name of the Burger */
-    public String name = "Insect Burger";
-    /* This tells us if the burger will contain cheese or not */
-    public boolean hasCheese;
-    /* This will tell us if the burger is vegetarian or not */
-    public boolean isVegetarian = true;
-    /* The name of the menu the burger is in */
-    public String menu = "Daily Menu";
+    /**
+     * Builds a new Burger
+     * @param menu String that represents the menu
+     */
+    public InsectBurger(String menu){
+	this.id = 1002;
+	this.price = 8;
+	this.description = "An insect burger";
+	this.name = "Insect Burger";
+	this.isVegetarian = true;
+	this.menu = menu;
+    }
 
     /**
      * Method for preparing protein in a specific way unique to the burger.
@@ -39,16 +37,4 @@ public class InsectBurger extends Burger {
         else
             System.out.println("It could work, but I guess you are sticking with the safe option");
     }
-
-    /**
-     * Method that gives us the string representation of the burger.
-     * 
-     * @return String The string representation of the burger.
-     */
-    public String toString() {
-        String rep = "Id: %d , Name: %s, Price:$ %f, Description: %s, Vegetarian: %s";
-        String burgerString = String.format(rep, id, name, price, description, String.valueOf(isVegetarian));
-        return burgerString;
-    }
-
 }

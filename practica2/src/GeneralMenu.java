@@ -19,9 +19,9 @@ public class GeneralMenu implements Menu {
      */
     public GeneralMenu() {
         burgers = new Burger[3];
-        burgers[0] = new ChickenBurger();
-        burgers[1] = new SimpleBurger();
-        burgers[2] = new MushroomBurger();
+        burgers[0] = new ChickenBurger(this.menuDescription());
+        burgers[1] = new SimpleBurger(this.menuDescription());
+        burgers[2] = new MushroomBurger(this.menuDescription());
     }
 
     /**
