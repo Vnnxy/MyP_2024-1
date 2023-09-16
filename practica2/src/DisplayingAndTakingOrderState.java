@@ -46,6 +46,7 @@ public class DisplayingAndTakingOrderState implements RobotState {
     public void displayMenuAndTakeOrder() {
         System.out.println("Here's the menu:");
 	this.robot.printMenu();
+	robot.setCurrentState(robot.getCookingState());
     }
 
     /**

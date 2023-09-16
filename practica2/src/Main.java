@@ -8,6 +8,7 @@ public class Main {
 	@SuppressWarnings("unchecked") Robot robot = new Robot(gen.iterator(),day.iterator(),sp.iterator());
 	Scanner in = new Scanner(System.in);
 	int option;
+	boolean ordering = false;
 	System.out.println("**WElCOME**");
 	while (true){
 	    System.out.println("The robot is " + robot.toString());
@@ -34,8 +35,10 @@ public class Main {
 		    robot.walk();
 		    break;
 		case 4:
+		    if (robot.getCurrentState() == robot.getDisplayingAndTakingOrderState())
+			ordering = true;
 		    robot.displayMenuAndTakeOrder();
-		    if (robot.getCurrentState() == robot.getDisplayingAndTakingOrderState()){
+		    if (ordering){
 			System.out.println("Please enter the burger´s id of your choice: ");
 			int id = 0;
 			while (true){
@@ -53,6 +56,7 @@ public class Main {
 			    continue;
 			}
 			robot.setCurrentState(robot.getCookingState());
+			ordering = false;
 		    } 
 		    break;
 		case 5:
