@@ -24,6 +24,8 @@ public class Robot {
     private RobotState currentState;
     /*The Burger to cook*/
     private Burger burger;
+    /*The menu*/
+    private String menu;
 
     /**
      * Builds a new Robot
@@ -41,6 +43,16 @@ public class Robot {
 	displayMenuAndTakeOrder = new DisplayingAndTakingOrderState(this);
 	serve = new ServingState(this);
 	currentState= sleep;
+	menu = getMenu();
+    }
+
+    /*private methos to save the menu*/
+    private String getMenu(){
+	StringBuffer sb = new StringBuffer();
+	for (Iterator<Burger> iterator : burgers)
+	    while (iterator.hasNext())
+		sb.append(iterator.next()).append("\n");
+	return sb.toString();
     }
 
     /**
@@ -159,9 +171,7 @@ public class Robot {
      * prints the menu
      */
     public void printMenu(){
-	for (Iterator<Burger> iterator : burgers)
-	    while (iterator.hasNext())
-		System.out.println(iterator.next());
+	System.out.println(menu);
     }
 
     /**
