@@ -7,15 +7,15 @@
 public class Private implements Soldier {
 
     /* The id of the private */
-    String id;
+    private String id;
     /* The formation of the battalion. */
-    String formation;
+    private String formation;
     /* The damage points of the private. */
-    int dps;
+    private int dps;
     /* The speed points of the private. */
-    int speed;
+    private int speed;
     /* The defense points of the private. */
-    int defense;
+    private int defense;
 
     /**
      * Build a new private

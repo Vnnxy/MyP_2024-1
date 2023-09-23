@@ -8,17 +8,17 @@ import java.util.ArrayList;
 public class Captain implements Soldier {
 
     /* The id of the captain */
-    String id;
+    private String id;
     /* The formation of the battalion. */
-    String formation;
+    private String formation;
     /* The damage points of the captain. */
-    int dps;
+    private int dps;
     /* The speed points of the captain. */
-    int speed;
+    private int speed;
     /* The defense points of the captain. */
-    int defense;
+    private int defense;
     /* The list of lieutenants under the captain. */
-    ArrayList<Lieutenant> lieutenants;
+    private ArrayList<Lieutenant> lieutenants;
 
     /**
      * Build a new captain

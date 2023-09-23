@@ -8,17 +8,17 @@ import java.util.ArrayList;
 public class Lieutenant implements Soldier {
 
     /* The id of the lieutenant */
-    String id;
+    private String id;
     /* The formation of the battalion. */
-    String formation;
+    private String formation;
     /* The damage points of the lieutenant. */
-    int dps;
+    private int dps;
     /* The speed points of the lieutenant. */
-    int speed;
+    private int speed;
     /* The defense points of the lieutenant. */
-    int defense;
+    private int defense;
     /* The list of privates under the lieutenant. */
-    ArrayList<Private> privates;
+    private ArrayList<Private> privates;
 
     /**
      * Build a new lieutenant
