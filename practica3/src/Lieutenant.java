@@ -93,7 +93,7 @@ public class Lieutenant implements Soldier {
      * @return true if Iron Cheems has been used, false otherwise.
      */
     public boolean hasIronCheemsBeenUsed() {
-        return this instanceof IronCheems ? true : false;
+        return false;
     }
 
     /**
@@ -121,7 +121,7 @@ public class Lieutenant implements Soldier {
     public void report() {
         this.toString();
         for (Private privateSoldier : privates)
-            privateSoldier.toString();
+            privateSoldier.report();
     }
 
     /**
