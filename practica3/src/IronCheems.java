@@ -35,6 +35,17 @@ public class IronCheems extends Gear {
     }
 
     /**
+     * Method that checks if the Iron Cheems has been used.
+     *
+     * @return true if Iron Cheems has been used, false otherwise.
+     */
+    @Override
+    public boolean hasIronCheemsBeenUsed() {
+        return true;
+    }
+
+
+    /**
      * Method that returns the soldier´s damage points.
      * 
      * @return int damage points

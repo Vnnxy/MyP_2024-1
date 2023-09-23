@@ -41,6 +41,20 @@ public interface Soldier {
     public int getDefense();
 
     /**
+     * Method that checks if the soldier is a captain.
+     *
+     * @return true if the soldier is a captain, false otherwise.
+     */
+    public boolean isCaptain();
+
+    /**
+     * Method that checks if the Iron Cheems has been used.
+     *
+     * @return true if Iron Cheems has been used, false otherwise.
+     */
+    public boolean hasIronCheemsBeenUsed();
+
+    /**
      * Method to give a report of the battalion.
      *
      */

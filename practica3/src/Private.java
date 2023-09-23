@@ -75,6 +75,24 @@ public class Private implements Soldier {
     }
 
     /**
+     * Method that checks if the soldier is a lieutenant.
+     *
+     * @return true if the soldier is a lieutenant, false otherwise.
+     */
+    public boolean isCaptain() {
+        return false;
+    }
+
+    /**
+     * Method that checks if the Iron Cheems has been used.
+     *
+     * @return true if Iron Cheems has been used, false otherwise.
+     */
+    public boolean hasIronCheemsBeenUsed() {
+        return false;
+    }
+
+    /**
      * Method to receive an order from the lieutenant.
      *
      */
