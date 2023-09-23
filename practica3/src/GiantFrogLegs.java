@@ -33,15 +33,15 @@ public class GiantFrogLegs extends Gear {
     public int getDefense() {
         return soldier.getDefense() - 1;
     }
-
+    
     /**
-     * Method that returns the soldier´s full report.
+     * Method that returns the description.
      * 
      * @return String
      */
     @Override
-    public String toString() {
-        return soldier.toString() + " using Giant Frog Legs";
+    public String getDescription(){
+	return " using Giant Frog Legs ";
     }
 
 }

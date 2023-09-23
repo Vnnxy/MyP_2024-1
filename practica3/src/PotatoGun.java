@@ -35,13 +35,13 @@ public class PotatoGun extends Gear {
     }
 
     /**
-     * Method that returns the soldier´s full report.
+     * Method that returns the description.
      * 
      * @return String
      */
     @Override
-    public String toString() {
-        return soldier.toString() + " using Potato Gun";
+    public String getDescription(){
+	return " using Potato Gun  ";
     }
 
 }

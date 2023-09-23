@@ -30,6 +30,7 @@ public class Captain implements Soldier {
         formation = "default";
         dps = 1;
         defense = 1;
+	speed = 1;
         lieutenants = new ArrayList<>();
     }
 
@@ -119,7 +120,7 @@ public class Captain implements Soldier {
      * Method to give a report of the battalion.
      */
     public void report() {
-        this.toString();
+        System.out.println(this.toString());
         for (Soldier soldier : lieutenants)
             soldier.report();
     }
@@ -131,12 +132,20 @@ public class Captain implements Soldier {
      */
     public String toString() {
         StringBuffer information = new StringBuffer();
-        information.append("Captain " + id);
-        information.append("\nBattalion formation " + formation);
-        information.append("\nDamage " + dps);
-        information.append("\nDefense " + defense);
-        information.append("\nSpeed " + speed);
-        information.append("\nGear: ");
+        information.append("Captain ").append(id);
+        information.append("\nBattalion formation ").append(formation);
+        information.append("\nDamage ").append(dps);
+	information.append("\nDefense ").append(defense);
+        information.append("\nSpeed ").append(speed);
         return information.toString();
+    }
+
+    /**
+     * Method that returns the description.
+     * 
+     * @return String
+     */
+    public String getDescription(){
+	return "Captain";
     }
 }

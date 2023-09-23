@@ -35,13 +35,13 @@ public class ChickenWings extends Gear {
     }
 
     /**
-     * Method that returns the soldier´s full report.
+     * Method that returns the description.
      * 
      * @return String
      */
     @Override
-    public String toString() {
-        return soldier.toString() + " using Chicken Wings ";
+    public String getDescription(){
+	return " using Chicken Wings ";
     }
 
 }

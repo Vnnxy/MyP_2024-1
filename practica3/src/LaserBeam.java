@@ -35,13 +35,13 @@ public class LaserBeam extends Gear {
     }
 
     /**
-     * Method that returns the soldier´s full report.
+     * Method that returns the description.
      * 
      * @return String
      */
     @Override
-    public String toString() {
-        return soldier.toString() + " using Laser Beam";
+    public String getDescription(){
+	return " using Laser Beam ";
     }
 
 }

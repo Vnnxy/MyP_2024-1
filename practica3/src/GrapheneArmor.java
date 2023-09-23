@@ -34,14 +34,15 @@ public class GrapheneArmor extends Gear {
         return soldier.getDefense() + 3;
     }
 
+
     /**
-     * Method that returns the soldier´s full report.
+     * Method that returns the description.
      * 
      * @return String
      */
     @Override
-    public String toString() {
-        return soldier.toString() + " using Graphene Armor";
+    public String getDescription(){
+	return " using Graphene Armor ";
     }
 
 }

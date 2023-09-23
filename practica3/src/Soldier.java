@@ -67,4 +67,11 @@ public interface Soldier {
      */
     public String toString();
 
+    /**
+     * Method that returns the description.
+     * 
+     * @return String
+     */
+    public String getDescription();
+
 }
