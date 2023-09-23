@@ -18,9 +18,9 @@ public class Captain implements Soldier {
     /* The defense points of the captain. */
     int defense;
     /* The list of lieutenants under the captain. */
-    ArrayList<Soldier> lieutenants;
+    ArrayList<Lieutenant> lieutenants;
 
-    /** 
+    /**
      * Build a new captain
      *
      * @param id the id of the captain.
@@ -48,7 +48,7 @@ public class Captain implements Soldier {
      * @return String the id.
      */
     public String getId() {
-        return id; 
+        return id;
     }
 
     /**
@@ -102,8 +102,8 @@ public class Captain implements Soldier {
      */
     public void relayOrder(String order) {
         this.formation = order;
-        for (Soldier lieutenant : lieutenants)
-            (Lieutenant)lieutenant.relayOrder(order);
+        for (Lieutenant lieutenant : lieutenants)
+            lieutenant.relayOrder(order);
     }
 
     /**
@@ -112,7 +112,7 @@ public class Captain implements Soldier {
      * @param soldier the soldier to add.
      */
     public void addSoldier(Soldier soldier) {
-        lieutenants.add(soldier);
+        lieutenants.add((Lieutenant) soldier);
     }
 
     /**

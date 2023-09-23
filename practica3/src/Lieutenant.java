@@ -17,10 +17,10 @@ public class Lieutenant implements Soldier {
     int speed;
     /* The defense points of the lieutenant. */
     int defense;
-    /* The list of soldiers under the lieutenant. */
-    ArrayList<Soldier> soldiers;
+    /* The list of privates under the lieutenant. */
+    ArrayList<Private> privates;
 
-    /** 
+    /**
      * Build a new lieutenant
      *
      * @param id the id of the lieutenant.
@@ -30,7 +30,7 @@ public class Lieutenant implements Soldier {
         formation = "default";
         dps = 1;
         defense = 1;
-        soldiers = new ArrayList<>();
+        privates = new ArrayList<>();
     }
 
     /**
@@ -48,7 +48,7 @@ public class Lieutenant implements Soldier {
      * @return String the id.
      */
     public String getId() {
-        return id; 
+        return id;
     }
 
     /**
@@ -102,8 +102,8 @@ public class Lieutenant implements Soldier {
      */
     public void relayOrder(String order) {
         this.formation = order;
-        for (Soldier lieutenant : lieutenants)
-            soldier.receiveOrder(order);
+        for (Private privateSoldier : privates)
+            privateSoldier.receiveOrder(order);
     }
 
     /**
@@ -112,7 +112,7 @@ public class Lieutenant implements Soldier {
      * @param soldier the soldier to add.
      */
     public void addSoldier(Soldier soldier) {
-        soldiers.add(soldier);
+        privates.add((Private) soldier);
     }
 
     /**
@@ -120,8 +120,8 @@ public class Lieutenant implements Soldier {
      */
     public void report() {
         this.toString();
-        for (Soldier soldier : soldiers)
-            soldier.toString();
+        for (Private privateSoldier : privates)
+            privateSoldier.toString();
     }
 
     /**
