@@ -130,11 +130,13 @@ public class Captain implements Soldier {
      * @return String
      */
     public String toString() {
-        System.out.println("Captain " + id);
-        System.out.println("\nBattalion formation " + formation);
-        System.out.println("\nDamage " + dps);
-        System.out.println("\nDefense " + defense);
-        System.out.println("\nSpeed " + speed);
-        System.out.println("\nGear ");
+        StringBuffer information = new StringBuffer();
+        information.append("Captain " + id);
+        information.append("\nBattalion formation " + formation);
+        information.append("\nDamage " + dps);
+        information.append("\nDefense " + defense);
+        information.append("\nSpeed " + speed);
+        information.append("\nGear: ");
+        return information.toString();
     }
 }

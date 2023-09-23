@@ -130,11 +130,13 @@ public class Lieutenant implements Soldier {
      * @return String
      */
     public String toString() {
-        System.out.println("Lieutenant " + id);
-        System.out.println("\nBattalion formation " + formation);
-        System.out.println("\nDamage " + dps);
-        System.out.println("\nDefense " + defense);
-        System.out.println("\nSpeed " + speed);
-        System.out.println("\nGear ");
+        StringBuffer information = new StringBuffer();
+        information.append("Lieutenant " + id);
+        information.append("\nBattalion formation " + formation);
+        information.append("\nDamage " + dps);
+        information.append("\nDefense " + defense);
+        information.append("\nSpeed " + speed);
+        information.append("\nGear: ");
+        return information.toString();
     }
 }
