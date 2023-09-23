@@ -63,6 +63,14 @@ public abstract class Gear implements Soldier {
     }
 
     /**
+     * Method to give a report of the battalion.
+     *
+     */
+    public void report() {
+        soldier.report();
+    }
+
+    /**
      * Method that returns the soldier´s full report.
      * 
      * @return String

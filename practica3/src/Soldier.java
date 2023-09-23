@@ -41,6 +41,12 @@ public interface Soldier {
     public int getDefense();
 
     /**
+     * Method to give a report of the battalion.
+     *
+     */
+    public void report();
+
+    /**
      * Method that returns the soldier´s full report.
      * 
      * @return String
