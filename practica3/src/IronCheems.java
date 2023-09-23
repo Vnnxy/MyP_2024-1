@@ -1,16 +1,16 @@
 /**
- * Class that represents the tank armor
+ * Class that represents the Iron Cheems
  * 
  * @author equipo.
  */
-public class TankArmor extends Gear {
+public class IronCheems extends Gear {
 
     /**
-     * Builds a tank armor decorator
+     * Builds an Iron Cheems decorator
      * 
      * @param soldier the soldier
      */
-    public TankArmor(Soldier soldier) {
+    public IronCheems(Soldier soldier) {
         super(soldier);
     }
 
@@ -21,7 +21,7 @@ public class TankArmor extends Gear {
      */
     @Override
     public int getSpeed() {
-        return soldier.getSpeed() - 5;
+        return soldier.getSpeed() + 2;
     }
 
     /**
@@ -31,7 +31,17 @@ public class TankArmor extends Gear {
      */
     @Override
     public int getDefense() {
-        return soldier.getDefense() + 5;
+        return soldier.getDefense() + 2;
+    }
+
+    /**
+     * Method that returns the soldier´s damage points.
+     * 
+     * @return int damage points
+     */
+    @Override
+    public int getDp() {
+        return soldier.getDp() + 2;
     }
 
     /**
@@ -41,7 +51,7 @@ public class TankArmor extends Gear {
      */
     @Override
     public String toString() {
-        return soldier.toString() + " using Tank Armor";
+        return soldier.toString() + " using Iron Cheems";
     }
 
 }

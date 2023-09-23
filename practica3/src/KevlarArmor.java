@@ -3,41 +3,45 @@
  * 
  * @author equipo.
  */
-public class KevlarArmor extends Gear{
+public class KevlarArmor extends Gear {
 
     /**
      * Builds a kevlar armor decorator
+     * 
      * @param soldier the soldier
      */
-    public KevlarArmor(Soldier soldier){
-	super(soldier);
+    public KevlarArmor(Soldier soldier) {
+        super(soldier);
     }
 
     /**
      * Method that returns the soldier´s speed.
+     * 
      * @return int speed.
      */
     @Override
-    public int getSpeed(){
-	return soldier.getSpeed() -1;
+    public int getSpeed() {
+        return soldier.getSpeed() - 1;
     }
 
     /**
      * Method that returns the soldier´s defense points.
+     * 
      * @return int defense points
      */
     @Override
-    public int getDefense(){
-	return soldier.getDefense() +2;
+    public int getDefense() {
+        return soldier.getDefense() + 2;
     }
 
     /**
      * Method that returns the soldier´s full report.
-     * @return String 
+     * 
+     * @return String
      */
     @Override
-    public String toString(){
-	return soldier.toString() + " using Kevlar Armor";
+    public String toString() {
+        return soldier.toString() + " using Kevlar Armor";
     }
-    
+
 }

@@ -1,27 +1,27 @@
 /**
- * Class that represents the tank armor
+ * Class that represents the Potato Gun
  * 
  * @author equipo.
  */
-public class TankArmor extends Gear {
+public class PotatoGun extends Gear {
 
     /**
-     * Builds a tank armor decorator
+     * Builds a Potato Gun decorator
      * 
      * @param soldier the soldier
      */
-    public TankArmor(Soldier soldier) {
+    public PotatoGun(Soldier soldier) {
         super(soldier);
     }
 
     /**
-     * Method that returns the soldier´s speed.
+     * Method that returns the soldier´s damage points.
      * 
-     * @return int speed.
+     * @return int damage points
      */
     @Override
-    public int getSpeed() {
-        return soldier.getSpeed() - 5;
+    public int getDp() {
+        return soldier.getDp() + 2;
     }
 
     /**
@@ -31,7 +31,7 @@ public class TankArmor extends Gear {
      */
     @Override
     public int getDefense() {
-        return soldier.getDefense() + 5;
+        return soldier.getDefense() - 1;
     }
 
     /**
@@ -41,7 +41,7 @@ public class TankArmor extends Gear {
      */
     @Override
     public String toString() {
-        return soldier.toString() + " using Tank Armor";
+        return soldier.toString() + " using Potato Gun";
     }
 
 }

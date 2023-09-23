@@ -1,16 +1,16 @@
 /**
- * Class that represents the tank armor
+ * Class that represents the Chicken Wings
  * 
  * @author equipo.
  */
-public class TankArmor extends Gear {
+public class ChickenWings extends Gear {
 
     /**
-     * Builds a tank armor decorator
+     * Builds a Chicken Wings decorator
      * 
      * @param soldier the soldier
      */
-    public TankArmor(Soldier soldier) {
+    public ChickenWings(Soldier soldier) {
         super(soldier);
     }
 
@@ -21,7 +21,7 @@ public class TankArmor extends Gear {
      */
     @Override
     public int getSpeed() {
-        return soldier.getSpeed() - 5;
+        return soldier.getSpeed() + 2;
     }
 
     /**
@@ -31,7 +31,7 @@ public class TankArmor extends Gear {
      */
     @Override
     public int getDefense() {
-        return soldier.getDefense() + 5;
+        return soldier.getDefense() - 1;
     }
 
     /**
@@ -41,7 +41,7 @@ public class TankArmor extends Gear {
      */
     @Override
     public String toString() {
-        return soldier.toString() + " using Tank Armor";
+        return soldier.toString() + " using Chicken Wings ";
     }
 
 }

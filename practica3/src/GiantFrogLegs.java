@@ -1,16 +1,16 @@
 /**
- * Class that represents the tank armor
+ * Class that represents the GiantFrogLegs Gear
  * 
  * @author equipo.
  */
-public class TankArmor extends Gear {
+public class GiantFrogLegs extends Gear {
 
     /**
-     * Builds a tank armor decorator
+     * Builds a Giant Frog Legs decorator
      * 
      * @param soldier the soldier
      */
-    public TankArmor(Soldier soldier) {
+    public GiantFrogLegs(Soldier soldier) {
         super(soldier);
     }
 
@@ -21,7 +21,7 @@ public class TankArmor extends Gear {
      */
     @Override
     public int getSpeed() {
-        return soldier.getSpeed() - 5;
+        return soldier.getSpeed() + 3;
     }
 
     /**
@@ -31,7 +31,7 @@ public class TankArmor extends Gear {
      */
     @Override
     public int getDefense() {
-        return soldier.getDefense() + 5;
+        return soldier.getDefense() - 1;
     }
 
     /**
@@ -41,7 +41,7 @@ public class TankArmor extends Gear {
      */
     @Override
     public String toString() {
-        return soldier.toString() + " using Tank Armor";
+        return soldier.toString() + " using Giant Frog Legs";
     }
 
 }
