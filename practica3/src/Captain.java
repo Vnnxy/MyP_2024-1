@@ -19,6 +19,8 @@ public class Captain implements Soldier {
     private int defense;
     /* The list of lieutenants under the captain. */
     private ArrayList<Lieutenant> lieutenants;
+    /* The gear the soldier will be using. */
+    private String gear;
 
     /**
      * Build a new captain
@@ -30,7 +32,7 @@ public class Captain implements Soldier {
         formation = "default";
         dps = 1;
         defense = 1;
-	speed = 1;
+        speed = 1;
         lieutenants = new ArrayList<>();
     }
 
@@ -62,6 +64,15 @@ public class Captain implements Soldier {
     }
 
     /**
+     * Method that sets the soldier´s damage points.
+     * 
+     * @param int dp representing damage points
+     */
+    public void setDp(int dp) {
+        this.dps = dp;
+    }
+
+    /**
      * Method that returns the captain´s speed.
      * 
      * @return int speed.
@@ -71,12 +82,47 @@ public class Captain implements Soldier {
     }
 
     /**
+     * Method that sets the soldier´s speed points.
+     * 
+     * @param int speed representing speed points
+     */
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    /**
      * Method that returns the captain´s defense points.
      * 
      * @return int defense points
      */
     public int getDefense() {
         return defense;
+    }
+
+    /**
+     * Method that sets the soldier´s defense points.
+     * 
+     * @param int defense representing defense points
+     */
+    public void setDefense(int defense) {
+        this.defense = defense;
+    }
+
+    /**
+     * Method that sets the soldier´s gear.
+     * 
+     * @param String representing gear.
+     */
+    public void setGear(String gear) {
+        // Im not sure what goes here
+    }
+
+    /**
+     * Method that returns a String representation of the soldier´s gear.
+     * 
+     */
+    public String getGear() {
+        return gear;
     }
 
     /**
@@ -126,6 +172,14 @@ public class Captain implements Soldier {
     }
 
     /**
+     * Method to receive an order (This wont be used for the captain).
+     *
+     */
+    public void receiveOrder(String order) {
+        return;
+    }
+
+    /**
      * Method that returns the captain´s full report.
      * 
      * @return String
@@ -135,17 +189,9 @@ public class Captain implements Soldier {
         information.append("Captain ").append(id);
         information.append("\nBattalion formation ").append(formation);
         information.append("\nDamage ").append(dps);
-	information.append("\nDefense ").append(defense);
+        information.append("\nDefense ").append(defense);
         information.append("\nSpeed ").append(speed);
         return information.toString();
     }
 
-    /**
-     * Method that returns the description.
-     * 
-     * @return String
-     */
-    public String getDescription(){
-	return "Captain";
-    }
 }

@@ -94,22 +94,13 @@ public abstract class Gear implements Soldier {
      * @return String
      */
     public String toString() {
-	StringBuffer information = new StringBuffer();
-        information.append(soldier.getDescription() + getDescription()).append(getId());
+        StringBuffer information = new StringBuffer();
+        information.append(getId());
         information.append("\nBattalion formation ").append(checkUp());
         information.append("\nDamage ").append(getDp());
-	information.append("\nDefense ").append(getDefense());
+        information.append("\nDefense ").append(getDefense());
         information.append("\nSpeed ").append(getSpeed());
         return information.toString();
-    }
-
-    /**
-     * Method that returns the description.
-     * 
-     * @return String
-     */
-    public String getDescription(){
-	return " ";
     }
 
 }

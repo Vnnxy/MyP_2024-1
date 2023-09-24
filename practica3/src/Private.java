@@ -16,6 +16,8 @@ public class Private implements Soldier {
     private int speed;
     /* The defense points of the private. */
     private int defense;
+    /* The gear the soldier will be using. */
+    private String gear;
 
     /**
      * Build a new private
@@ -27,7 +29,7 @@ public class Private implements Soldier {
         formation = "default";
         dps = 1;
         defense = 1;
-	speed = 1;
+        speed = 1;
     }
 
     /**
@@ -58,6 +60,15 @@ public class Private implements Soldier {
     }
 
     /**
+     * Method that sets the soldier´s damage points.
+     * 
+     * @param int dp representing damage points
+     */
+    public void setDp(int dp) {
+        this.dps = dp;
+    }
+
+    /**
      * Method that returns the soldier´s speed.
      * 
      * @return int speed.
@@ -67,12 +78,47 @@ public class Private implements Soldier {
     }
 
     /**
+     * Method that sets the soldier´s speed points.
+     * 
+     * @param int speed representing speed points
+     */
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    /**
      * Method that returns the soldier´s defense points.
      * 
      * @return int defense points
      */
     public int getDefense() {
         return defense;
+    }
+
+    /**
+     * Method that sets the soldier´s defense points.
+     * 
+     * @param int defense representing defense points
+     */
+    public void setDefense(int defense) {
+        this.defense = defense;
+    }
+
+    /**
+     * Method that sets the soldier´s gear.
+     * 
+     * @param gear representing gear.
+     */
+    public void setGear(String gear) {
+        // Im not sure what goes here
+    }
+
+    /**
+     * Method that returns a String representation of the soldier´s gear.
+     * 
+     */
+    public String getGear() {
+        return gear;
     }
 
     /**
@@ -91,6 +137,23 @@ public class Private implements Soldier {
      */
     public boolean hasIronCheemsBeenUsed() {
         return false;
+    }
+
+    /**
+     * Method to relay an order to the battalion under the captain.
+     *
+     */
+    public void relayOrder(String order) {
+        return;
+    }
+
+    /**
+     * Method for adding soldiers, it won't be used
+     *
+     * @param soldier the soldier to add.
+     */
+    public void addSoldier(Soldier soldier) {
+        return;
     }
 
     /**
@@ -114,21 +177,13 @@ public class Private implements Soldier {
      * @return String
      */
     public String toString() {
-	StringBuffer information = new StringBuffer();
+        StringBuffer information = new StringBuffer();
         information.append("Private ").append(id);
         information.append("\nBattalion formation ").append(formation);
         information.append("\nDamage ").append(dps);
-	information.append("\nDefense ").append(defense);
+        information.append("\nDefense ").append(defense);
         information.append("\nSpeed ").append(speed);
         return information.toString();
-    }
-    /**
-     * Method that returns the description.
-     * 
-     * @return String
-     */
-    public String getDescription(){
-	return "Private";
     }
 
 }
