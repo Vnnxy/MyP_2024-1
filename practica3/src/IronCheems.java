@@ -112,7 +112,7 @@ public class IronCheems extends Gear {
      * @param gear representing gear.
      */
     public void setGear(String gear) {
-        this.soldier.setGear(soldier.getGear() + "using Iron Cheems");
+        this.soldier.setGear(gear);
     }
 
     /**
@@ -120,7 +120,7 @@ public class IronCheems extends Gear {
      * 
      */
     public String getGear() {
-        return soldier.getGear();
+        return soldier.getGear() + "Iron Cheems, ";
     }
 
 }

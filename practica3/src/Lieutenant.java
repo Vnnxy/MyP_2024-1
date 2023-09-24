@@ -17,10 +17,10 @@ public class Lieutenant implements Soldier {
     private int speed;
     /* The defense points of the lieutenant. */
     private int defense;
-    /* The list of privates under the lieutenant. */
-    private ArrayList<Private> privates;
     /* The gear the soldier will be using. */
     private String gear;
+    /* The list of privates under the lieutenant. */
+    private ArrayList<Private> privates;
 
     /**
      * Build a new lieutenant
@@ -28,11 +28,12 @@ public class Lieutenant implements Soldier {
      * @param id the id of the lieutenant.
      */
     public Lieutenant(String id) {
-        this.id = id;
+        this.id = "Lieutenant " + id;
         formation = "default";
         dps = 1;
         defense = 1;
         speed = 1;
+        gear = "";
         privates = new ArrayList<>();
     }
 
@@ -114,7 +115,7 @@ public class Lieutenant implements Soldier {
      * @param gear representing gear.
      */
     public void setGear(String gear) {
-        // Im not sure what goes here
+        this.gear = gear;
     }
 
     /**
@@ -186,11 +187,12 @@ public class Lieutenant implements Soldier {
      */
     public String toString() {
         StringBuffer information = new StringBuffer();
-        information.append("Lieutenant ").append(id);
-        information.append("\nBattalion formation ").append(formation);
-        information.append("\nDamage ").append(dps);
-        information.append("\nDefense ").append(defense);
-        information.append("\nSpeed ").append(speed);
+        information.append("\n\t" + id);
+        information.append("\n\tBattalion formation ").append(formation);
+        information.append("\n\tDamage ").append(dps);
+        information.append("\n\tDefense ").append(defense);
+        information.append("\n\tSpeed ").append(speed);
+        information.append("\n\tGear ").append(gear);
         return information.toString();
     }
 

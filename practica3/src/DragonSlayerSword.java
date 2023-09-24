@@ -92,7 +92,7 @@ public class DragonSlayerSword extends Gear {
      * @param gear representing gear.
      */
     public void setGear(String gear) {
-        this.soldier.setGear(soldier.getGear() + "using Dragon Slayer Sword");
+        this.soldier.setGear(gear);
     }
 
     /**
@@ -100,7 +100,7 @@ public class DragonSlayerSword extends Gear {
      * 
      */
     public String getGear() {
-        return soldier.getGear();
+        return soldier.getGear() + "Dragon Slayer Sword, ";
     }
 
 }

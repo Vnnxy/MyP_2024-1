@@ -92,7 +92,7 @@ public class ChickenWings extends Gear {
      * @param gear representing gear.
      */
     public void setGear(String gear) {
-        this.soldier.setGear(soldier.getGear() + "using Chicken Wings");
+        this.soldier.setGear(gear);
     }
 
     /**
@@ -100,7 +100,7 @@ public class ChickenWings extends Gear {
      * 
      */
     public String getGear() {
-        return soldier.getGear();
+        return soldier.getGear() + "Chicken Wings, ";
     }
 
 }

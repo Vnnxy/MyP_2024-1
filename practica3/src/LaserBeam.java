@@ -92,7 +92,7 @@ public class LaserBeam extends Gear {
      * @param gear representing gear.
      */
     public void setGear(String gear) {
-        this.soldier.setGear(soldier.getGear() + "using Laser Beam");
+        this.soldier.setGear(gear);
     }
 
     /**
@@ -100,7 +100,7 @@ public class LaserBeam extends Gear {
      * 
      */
     public String getGear() {
-        return soldier.getGear();
+        return soldier.getGear() + "Laser Beam, ";
     }
 
 }

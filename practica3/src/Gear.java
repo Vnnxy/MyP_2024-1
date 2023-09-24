@@ -15,6 +15,10 @@ public abstract class Gear implements Soldier {
      */
     public Gear(Soldier soldier) {
         this.soldier = soldier;
+        setDp(getDp());
+        setDefense(getDefense());
+        setSpeed(getSpeed());
+        setGear(getGear());
     }
 
     /**
@@ -63,6 +67,14 @@ public abstract class Gear implements Soldier {
     }
 
     /**
+     * Method that returns a String representation of the soldier´s gear.
+     * 
+     */
+    public String getGear() {
+        return soldier.getGear();
+    }
+
+    /**
      * Method that checks if the soldier is a captain.
      *
      * @return true if the soldier is a captain, false otherwise.
@@ -94,13 +106,7 @@ public abstract class Gear implements Soldier {
      * @return String
      */
     public String toString() {
-        StringBuffer information = new StringBuffer();
-        information.append(getId());
-        information.append("\nBattalion formation ").append(checkUp());
-        information.append("\nDamage ").append(getDp());
-        information.append("\nDefense ").append(getDefense());
-        information.append("\nSpeed ").append(getSpeed());
-        return information.toString();
+        return soldier.toString();
     }
 
 }

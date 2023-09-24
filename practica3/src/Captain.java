@@ -17,10 +17,10 @@ public class Captain implements Soldier {
     private int speed;
     /* The defense points of the captain. */
     private int defense;
-    /* The list of lieutenants under the captain. */
-    private ArrayList<Lieutenant> lieutenants;
     /* The gear the soldier will be using. */
     private String gear;
+    /* The list of lieutenants under the captain. */
+    private ArrayList<Lieutenant> lieutenants;
 
     /**
      * Build a new captain
@@ -28,11 +28,12 @@ public class Captain implements Soldier {
      * @param id the id of the captain.
      */
     public Captain(String id) {
-        this.id = id;
+        this.id = "Captain " + id;
         formation = "default";
         dps = 1;
         defense = 1;
         speed = 1;
+        gear = "";
         lieutenants = new ArrayList<>();
     }
 
@@ -114,7 +115,7 @@ public class Captain implements Soldier {
      * @param String representing gear.
      */
     public void setGear(String gear) {
-        // Im not sure what goes here
+        this.gear = gear;
     }
 
     /**
@@ -186,11 +187,12 @@ public class Captain implements Soldier {
      */
     public String toString() {
         StringBuffer information = new StringBuffer();
-        information.append("Captain ").append(id);
+        information.append(id);
         information.append("\nBattalion formation ").append(formation);
         information.append("\nDamage ").append(dps);
         information.append("\nDefense ").append(defense);
         information.append("\nSpeed ").append(speed);
+        information.append("\nGear ").append(gear);
         return information.toString();
     }
 

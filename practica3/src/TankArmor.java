@@ -92,7 +92,7 @@ public class TankArmor extends Gear {
      * @param gear representing gear.
      */
     public void setGear(String gear) {
-        this.soldier.setGear(soldier.getGear() + "using Tank Armor");
+        this.soldier.setGear(gear);
     }
 
     /**
@@ -100,7 +100,7 @@ public class TankArmor extends Gear {
      * 
      */
     public String getGear() {
-        return soldier.getGear();
+        return soldier.getGear() + "Tank Armor, ";
     }
 
 }

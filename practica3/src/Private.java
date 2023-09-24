@@ -25,11 +25,12 @@ public class Private implements Soldier {
      * @param id the id of the private.
      */
     public Private(String id) {
-        this.id = id;
+        this.id = "Private " + id;
         formation = "default";
         dps = 1;
         defense = 1;
         speed = 1;
+        gear = "";
     }
 
     /**
@@ -110,7 +111,7 @@ public class Private implements Soldier {
      * @param gear representing gear.
      */
     public void setGear(String gear) {
-        // Im not sure what goes here
+        this.gear = gear;
     }
 
     /**
@@ -163,8 +164,7 @@ public class Private implements Soldier {
     public void receiveOrder(String order) {
         this.formation = order;
     }
-
-    /**
+/**
      * Method to give a report of the private.
      */
     public void report() {
@@ -178,11 +178,12 @@ public class Private implements Soldier {
      */
     public String toString() {
         StringBuffer information = new StringBuffer();
-        information.append("Private ").append(id);
-        information.append("\nBattalion formation ").append(formation);
-        information.append("\nDamage ").append(dps);
-        information.append("\nDefense ").append(defense);
-        information.append("\nSpeed ").append(speed);
+        information.append("\n\t\t" + id);
+        information.append("\n\t\tBattalion formation ").append(formation);
+        information.append("\n\t\tDamage ").append(dps);
+        information.append("\n\t\tDefense ").append(defense);
+        information.append("\n\t\tSpeed ").append(speed);
+        information.append("\n\t\tGear ").append(gear);
         return information.toString();
     }
 

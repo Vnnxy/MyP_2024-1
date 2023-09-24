@@ -9,7 +9,8 @@ public class Main{
 	System.out.println(captain);
 	System.out.println(lieutenant);
 	System.out.println(privat);
-	captain.relayOrder("Formation gammma");
+	System.out.println("--------------------------------------------");
+	captain.relayOrder("gammma");
 	captain = new TankArmor(captain);
 	captain = new IronCheems(captain);
 	lieutenant = new GrapheneArmor(lieutenant);
@@ -25,9 +26,5 @@ public class Main{
 	System.out.println(privat);
 	System.out.println("--------------------------------------------");
 	captain.report();
-	
-	
-	
-	
     }
 }
