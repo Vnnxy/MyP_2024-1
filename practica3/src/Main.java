@@ -1,6 +1,13 @@
+/**
+ * Main class, where thr user intercats with the system
+ *
+ */
 import java.util.Scanner;
 public class Main{
 
+    /**
+     * Main method
+     */
     public static void main(String[] args){
 	Soldier s1 = new Private("1");
 	Soldier s2 = new Private("2");
