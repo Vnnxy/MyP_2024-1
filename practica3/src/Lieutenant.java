@@ -20,7 +20,7 @@ public class Lieutenant implements Soldier {
     /* The gear the soldier will be using. */
     private String gear;
     /* The list of privates under the lieutenant. */
-    private ArrayList<Private> privates;
+    private ArrayList<Soldier> privates;
 
     /**
      * Build a new lieutenant
@@ -28,7 +28,7 @@ public class Lieutenant implements Soldier {
      * @param id the id of the lieutenant.
      */
     public Lieutenant(String id) {
-        this.id = "Lieutenant " + id;
+        this.id = id;
         formation = "default";
         dps = 1;
         defense = 1;
@@ -42,7 +42,7 @@ public class Lieutenant implements Soldier {
      * 
      * @return String the formation
      */
-    public String checkUp() {
+    public String getFormation() {
         return formation;
     }
 
@@ -127,12 +127,21 @@ public class Lieutenant implements Soldier {
     }
 
     /**
+     * Method that checks if the soldier is a captain.
+     *
+     * @return true if the soldier is a captain, false otherwise.
+     */
+    public boolean isCaptain() {
+        return false;
+    }
+
+    /**
      * Method that checks if the soldier is a lieutenant.
      *
      * @return true if the soldier is a lieutenant, false otherwise.
      */
-    public boolean isCaptain() {
-        return false;
+    public boolean isLieutenant() {
+        return true;
     }
 
     /**
@@ -149,8 +158,7 @@ public class Lieutenant implements Soldier {
      *
      */
     public void relayOrder(String order) {
-        this.formation = order;
-        for (Private privateSoldier : privates)
+        for (Soldier privateSoldier : privates)
             privateSoldier.receiveOrder(order);
     }
 
@@ -160,7 +168,11 @@ public class Lieutenant implements Soldier {
      * @param soldier the soldier to add.
      */
     public void addSoldier(Soldier soldier) {
-        privates.add((Private) soldier);
+	if (soldier.isCaptain() || soldier.isLieutenant()){
+	    System.out.println("A Lieutenat only has Privates under control");
+	    return;
+	}
+        privates.add(soldier);
     }
 
     /**
@@ -168,16 +180,17 @@ public class Lieutenant implements Soldier {
      */
     public void report() {
         System.out.println(this.toString());
-        for (Private privateSoldier : privates)
+        for (Soldier privateSoldier : privates)
             privateSoldier.report();
     }
 
     /**
-     * Method to receive an order (This wont be used for the captain).
+     * Method to receive an order.
      *
      */
     public void receiveOrder(String order) {
-        return;
+        this.formation = order;
+	relayOrder(order);
     }
 
     /**
@@ -187,12 +200,12 @@ public class Lieutenant implements Soldier {
      */
     public String toString() {
         StringBuffer information = new StringBuffer();
-        information.append("\n\t" + id);
-        information.append("\n\tBattalion formation ").append(formation);
-        information.append("\n\tDamage ").append(dps);
-        information.append("\n\tDefense ").append(defense);
-        information.append("\n\tSpeed ").append(speed);
-        information.append("\n\tGear ").append(gear);
+        information.append("\n\tLieutenant: " + id);
+        information.append("\n\tBattalion formation: ").append(formation);
+        information.append("\n\tDamage: ").append(dps);
+        information.append("\n\tDefense: ").append(defense);
+        information.append("\n\tSpeed: ").append(speed);
+        information.append("\n\tGear: ").append(gear);
         return information.toString();
     }
 

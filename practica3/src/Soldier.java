@@ -10,7 +10,7 @@ public interface Soldier {
      * 
      * @return String the formation
      */
-    public String checkUp();
+    public String getFormation();
 
     /**
      * Method that returns the soldier´s id.
@@ -82,6 +82,13 @@ public interface Soldier {
     public boolean isCaptain();
 
     /**
+     * Method that checks if the soldier is a lieutenant.
+     *
+     * @return true if the soldier is a lieutenant, false otherwise.
+     */
+    public boolean isLieutenant();
+
+    /**
      * Method that checks if the Iron Cheems has been used.
      *
      * @return true if Iron Cheems has been used, false otherwise.
@@ -96,13 +103,13 @@ public interface Soldier {
 
     /**
      * Method to relay an order to the battalion under the lieutenant.
-     *
+     * @param oder the order
      */
     public void relayOrder(String order);
 
     /**
      * Method to receive an order from the lieutenant.
-     *
+     * @param order the orde
      */
     public void receiveOrder(String order);
 

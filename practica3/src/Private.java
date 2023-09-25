@@ -25,7 +25,7 @@ public class Private implements Soldier {
      * @param id the id of the private.
      */
     public Private(String id) {
-        this.id = "Private " + id;
+        this.id = id;
         formation = "default";
         dps = 1;
         defense = 1;
@@ -38,7 +38,7 @@ public class Private implements Soldier {
      * 
      * @return String the formation
      */
-    public String checkUp() {
+    public String getFormation() {
         return formation;
     }
 
@@ -116,10 +116,19 @@ public class Private implements Soldier {
 
     /**
      * Method that returns a String representation of the soldier´s gear.
-     * 
+     * @return String the gear
      */
     public String getGear() {
         return gear;
+    }
+
+    /**
+     * Method that checks if the soldier is a captain.
+     *
+     * @return true if the soldier is a captain, false otherwise.
+     */
+    public boolean isCaptain() {
+        return false;
     }
 
     /**
@@ -127,7 +136,7 @@ public class Private implements Soldier {
      *
      * @return true if the soldier is a lieutenant, false otherwise.
      */
-    public boolean isCaptain() {
+    public boolean isLieutenant() {
         return false;
     }
 
@@ -145,6 +154,7 @@ public class Private implements Soldier {
      *
      */
     public void relayOrder(String order) {
+	System.out.println("A private can't order anything");
         return;
     }
 
@@ -154,6 +164,7 @@ public class Private implements Soldier {
      * @param soldier the soldier to add.
      */
     public void addSoldier(Soldier soldier) {
+	System.out.println("A Private does not have any soldiers");
         return;
     }
 
@@ -178,12 +189,12 @@ public class Private implements Soldier {
      */
     public String toString() {
         StringBuffer information = new StringBuffer();
-        information.append("\n\t\t" + id);
-        information.append("\n\t\tBattalion formation ").append(formation);
-        information.append("\n\t\tDamage ").append(dps);
-        information.append("\n\t\tDefense ").append(defense);
-        information.append("\n\t\tSpeed ").append(speed);
-        information.append("\n\t\tGear ").append(gear);
+        information.append("\n\t\tPrivate: " + id);
+        information.append("\n\t\tBattalion formation: ").append(formation);
+        information.append("\n\t\tDamage: ").append(dps);
+        information.append("\n\t\tDefense: ").append(defense);
+        information.append("\n\t\tSpeed: ").append(speed);
+        information.append("\n\t\tGear: ").append(gear);
         return information.toString();
     }
 

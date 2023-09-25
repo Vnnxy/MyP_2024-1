@@ -15,10 +15,6 @@ public abstract class Gear implements Soldier {
      */
     public Gear(Soldier soldier) {
         this.soldier = soldier;
-        setDp(getDp());
-        setDefense(getDefense());
-        setSpeed(getSpeed());
-        setGear(getGear());
     }
 
     /**
@@ -26,8 +22,8 @@ public abstract class Gear implements Soldier {
      * 
      * @return String the formation
      */
-    public String checkUp() {
-        return soldier.checkUp();
+    public String getFormation() {
+        return soldier.getFormation();
     }
 
     /**
@@ -49,6 +45,15 @@ public abstract class Gear implements Soldier {
     }
 
     /**
+     * Method that sets the soldier´s damage points.
+     * 
+     * @param int dp representing damage points
+     */
+    public void setDp(int dp){
+	soldier.setDp(dp);
+    }
+
+    /**
      * Method that returns the soldier´s speed.
      * 
      * @return int speed.
@@ -58,12 +63,39 @@ public abstract class Gear implements Soldier {
     }
 
     /**
+     * Method that sets the soldier´s speed points.
+     * 
+     * @param int speed representing speed points
+     */
+    public void setSpeed(int speed){
+	soldier.setSpeed(speed);
+    }
+
+    /**
      * Method that returns the soldier´s defense points.
      * 
      * @return int defense points
      */
     public int getDefense() {
         return soldier.getDefense();
+    }
+
+    /**
+     * Method that sets the soldier´s defense points.
+     * 
+     * @param int defense representing defense points
+     */
+    public void setDefense(int defense){
+	soldier.setDefense(defense);
+    }
+
+    /**
+     * Method that sets the soldier´s gear.
+     * 
+     * @param gear representing gear.
+     */
+    public void setGear(String gear){
+	soldier.setGear(gear);
     }
 
     /**
@@ -84,6 +116,15 @@ public abstract class Gear implements Soldier {
     }
 
     /**
+     * Method that checks if the soldier is a lieutenant.
+     *
+     * @return true if the soldier is a lieutenant, false otherwise.
+     */
+    public boolean isLieutenant(){
+	return soldier.isLieutenant();
+    }
+
+    /**
      * Method that checks if the Iron Cheems has been used.
      *
      * @return true if Iron Cheems has been used, false otherwise.
@@ -98,6 +139,31 @@ public abstract class Gear implements Soldier {
      */
     public void report() {
         soldier.report();
+    }
+
+    /**
+     * Method to relay an order to the battalion under the lieutenant.
+     * @param oder the order
+     */
+    public void relayOrder(String order){
+	soldier.relayOrder(order);
+    }
+
+    /**
+     * Method to receive an order from the lieutenant.
+     * @param oder the order
+     */
+    public void receiveOrder(String order){
+	soldier.receiveOrder(order);
+    }
+
+    /**
+     * Method to add a soldier to the battallion under the lieutenant.
+     *
+     * @param soldier the soldier to add.
+     */
+    public void addSoldier(Soldier soldier){
+	this.soldier.addSoldier(soldier);
     }
 
     /**
