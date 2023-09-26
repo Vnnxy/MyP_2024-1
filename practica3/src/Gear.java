@@ -125,6 +125,24 @@ public abstract class Gear implements Soldier {
     }
 
     /**
+     * Method that sets if the soldier is a captain.
+     *
+     * @param boolean  true if the soldier is a captain, false otherwise.
+     */
+    public void setIsCaptain(boolean isCaptain){
+	soldier.setIsCaptain(isCaptain);
+    }
+
+    /**
+     * Method that sets if the soldier is a lieutenant.
+     *
+     * @param boolean true if the soldier is a lieutenant, false otherwise.
+     */
+    public void setIsLieutenant(boolean isLieutenant){
+	soldier.setIsLieutenant(isLieutenant);
+    }
+
+    /**
      * Method that checks if the Iron Cheems has been used.
      *
      * @return true if Iron Cheems has been used, false otherwise.

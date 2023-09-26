@@ -29,7 +29,7 @@ public class CheemsListensToUncleSam implements Soldier {
     private boolean isLieutenant = false;
 
     /**
-     * Build a new private
+     * Build a new cheems adaptator
      *
      * @param id         the id for cheems.
      * @param cheems     the instance of cheems that we will be adapting
@@ -51,6 +51,9 @@ public class CheemsListensToUncleSam implements Soldier {
 
         this.id = id;
         this.formation = formation;
+	dps = 1;
+	speed = 1;
+	defense = 1;
     }
 
     /**
@@ -192,6 +195,29 @@ public class CheemsListensToUncleSam implements Soldier {
     @Override
     public boolean isLieutenant() {
         return isLieutenant;
+    }
+
+    /**
+     * Method that sets if the soldier is a captain.
+     *
+     * @param boolean  true if the soldier is a captain, false otherwise.
+     */
+    public void setIsCaptain(boolean isCaptain){
+	if (!this.isCaptain && isCaptain){
+	    subordinates = new ArrayList<Soldier>();
+	}
+	this.isCaptain = isCaptain;
+    }
+
+    /**
+     * Method that sets if the soldier is a lieutenant.
+     *
+     * @param boolean true if the soldier is a lieutenant, false otherwise.
+     */
+    public void setIsLieutenant(boolean isLieutenant){
+	if (!this.isLieutenant && isLieutenant)
+	    subordinates = new ArrayList<Soldier>();
+	this.isLieutenant = isLieutenant;
     }
 
     /**

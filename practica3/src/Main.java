@@ -32,8 +32,9 @@ public class Main {
 		Soldier t4 = new Lieutenant("4");
 		Soldier t5 = new Lieutenant("5");
 		Soldier t6 = new Lieutenant("6");
+		/*Initialized an arbitrary cheem adaptator*/
 		CheemsSoldado cheemsSoldier = new CheemsSoldado("Cheems", 444);
-		Soldier cheems = new CheemsListensToUncleSam(cheemsSoldier, false, true, "444", "Get up");
+		Soldier cheems = new CheemsListensToUncleSam(cheemsSoldier, false, false, "444", "Get up");
 		t1 = new KevlarArmor(t1);
 		t4 = new GrapheneArmor(t4);
 		t6 = new DragonSlayerSword(t6);
@@ -58,7 +59,6 @@ public class Main {
 		t6.addSoldier(s14);
 		t6.addSoldier(s15);
 		c1.addSoldier(t1);
-		c1.addSoldier(cheems);
 		c1.addSoldier(t2);
 		c2.addSoldier(t3);
 		c2.addSoldier(t4);
@@ -85,7 +85,13 @@ public class Main {
 						reportBatallions(c1, c2, c3, s1, sc, cheems);
 						break;
 					case 3:
-						cheems = equipCheems(sc, cheems);
+					        System.out.println("Cheems has decided to become a Lieutenant");
+						cheems.setIsLieutenant(true);
+						cheems.setIsCaptain(false);
+					        cheems = equipCheems(sc, cheems);
+						System.out.println("Adding cheem to the first batallion");
+						c1.addSoldier(cheems);
+						c1.report();
 						break;
 					case 0:
 						sc.close();
@@ -199,7 +205,7 @@ public class Main {
 	}
 
 	/* Private method to display the cheems menu */
-	private static Soldier equipCheems(Scanner sc, Soldier cheemsSoldier) {
+    private static Soldier equipCheems(Scanner sc, Soldier cheemsSoldier) {
 		Soldier soldier = cheemsSoldier;
 
 		while (true) {
@@ -288,9 +294,9 @@ public class Main {
 					case 3:
 						s1.report();
 						break;
-					case 4:
-						cheems.report();
-						break;
+				        case 4:
+					        System.out.println(cheems.toString());
+					        break;
 					case 0:
 						return;
 					default:

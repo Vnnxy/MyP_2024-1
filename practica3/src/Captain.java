@@ -146,6 +146,26 @@ public class Captain implements Soldier {
     }
 
     /**
+     * Method that sets if the soldier is a captain.
+     *
+     * @param boolean  true if the soldier is a captain, false otherwise.
+     */
+    public void setIsCaptain(boolean isCaptain){
+	System.out.println("I'm already a Captain");
+    }
+
+    /**
+     * Method that sets if the soldier is a lieutenant.
+     *
+     * @param boolean true if the soldier is a lieutenant, false otherwise.
+     */
+    public void setIsLieutenant(boolean isLieutenant){
+	if (isLieutenant){
+	    System.out.println("I'm a captain i'm not getting derank");
+	}
+    }
+
+    /**
      * Method that checks if the Iron Cheems has been used.
      *
      * @return true if Iron Cheems has been used, false otherwise.

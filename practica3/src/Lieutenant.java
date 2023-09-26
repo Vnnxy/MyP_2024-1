@@ -145,6 +145,30 @@ public class Lieutenant implements Soldier {
     }
 
     /**
+     * Method that sets if the soldier is a captain.
+     *
+     * @param boolean  true if the soldier is a captain, false otherwise.
+     */
+    public void setIsCaptain(boolean isCaptain){
+	if (isCaptain){
+	    System.out.println("Im just a lieutenant");
+	}
+    }
+
+    /**
+     * Method that sets if the soldier is a lieutenant.
+     *
+     * @param boolean true if the soldier is a lieutenant, false otherwise.
+     */
+    public void setIsLieutenant(boolean isLieutenant){
+	if(!isLieutenant){
+	    System.out.println("Im going to stay as a lieutenant forever");
+	} else{
+	    System.out.println("Im already aLieutenant");
+	}
+    }
+
+    /**
      * Method that checks if the Iron Cheems has been used.
      *
      * @return true if Iron Cheems has been used, false otherwise.
