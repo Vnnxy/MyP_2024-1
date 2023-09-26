@@ -1,6 +1,6 @@
 
 /**
- * Main class, where thr user intercats with the system
+ * Main class, where thr user interacts with the system
  *
  */
 import java.util.Scanner;
@@ -32,7 +32,7 @@ public class Main {
 		Soldier t4 = new Lieutenant("4");
 		Soldier t5 = new Lieutenant("5");
 		Soldier t6 = new Lieutenant("6");
-		/*Initialized an arbitrary cheem adaptator*/
+		/* Initialized an arbitrary cheem adaptator */
 		CheemsSoldado cheemsSoldier = new CheemsSoldado("Cheems", 444);
 		Soldier cheems = new CheemsListensToUncleSam(cheemsSoldier, false, false, "444", "Get up");
 		t1 = new KevlarArmor(t1);
@@ -85,10 +85,10 @@ public class Main {
 						reportBatallions(c1, c2, c3, s1, sc, cheems);
 						break;
 					case 3:
-					        System.out.println("Cheems has decided to become a Lieutenant");
+						System.out.println("Cheems has decided to become a Lieutenant");
 						cheems.setIsLieutenant(true);
 						cheems.setIsCaptain(false);
-					        cheems = equipCheems(sc, cheems);
+						cheems = equipCheems(sc, cheems);
 						System.out.println("Adding cheem to the first batallion");
 						c1.addSoldier(cheems);
 						c1.relayOrder(c1.getFormation());
@@ -206,7 +206,7 @@ public class Main {
 	}
 
 	/* Private method to display the cheems menu */
-    private static Soldier equipCheems(Scanner sc, Soldier cheemsSoldier) {
+	private static Soldier equipCheems(Scanner sc, Soldier cheemsSoldier) {
 		Soldier soldier = cheemsSoldier;
 
 		while (true) {
@@ -295,9 +295,9 @@ public class Main {
 					case 3:
 						s1.report();
 						break;
-				        case 4:
-					        System.out.println(cheems.toString());
-					        break;
+					case 4:
+						System.out.println(cheems.toString());
+						break;
 					case 0:
 						return;
 					default:

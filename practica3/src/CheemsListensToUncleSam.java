@@ -7,6 +7,8 @@ import java.util.ArrayList;
  * @author equipo.
  */
 public class CheemsListensToUncleSam implements Soldier {
+
+    /* The cheems we will be adaptding */
     private CheemsSoldado cheems;
 
     /* The id of the captain */
@@ -51,9 +53,9 @@ public class CheemsListensToUncleSam implements Soldier {
 
         this.id = id;
         this.formation = formation;
-	dps = 1;
-	speed = 1;
-	defense = 1;
+        dps = 1;
+        speed = 1;
+        defense = 1;
     }
 
     /**
@@ -200,13 +202,13 @@ public class CheemsListensToUncleSam implements Soldier {
     /**
      * Method that sets if the soldier is a captain.
      *
-     * @param boolean  true if the soldier is a captain, false otherwise.
+     * @param boolean true if the soldier is a captain, false otherwise.
      */
-    public void setIsCaptain(boolean isCaptain){
-	if (!this.isCaptain && isCaptain){
-	    subordinates = new ArrayList<Soldier>();
-	}
-	this.isCaptain = isCaptain;
+    public void setIsCaptain(boolean isCaptain) {
+        if (!this.isCaptain && isCaptain) {
+            subordinates = new ArrayList<Soldier>();
+        }
+        this.isCaptain = isCaptain;
     }
 
     /**
@@ -214,10 +216,10 @@ public class CheemsListensToUncleSam implements Soldier {
      *
      * @param boolean true if the soldier is a lieutenant, false otherwise.
      */
-    public void setIsLieutenant(boolean isLieutenant){
-	if (!this.isLieutenant && isLieutenant)
-	    subordinates = new ArrayList<Soldier>();
-	this.isLieutenant = isLieutenant;
+    public void setIsLieutenant(boolean isLieutenant) {
+        if (!this.isLieutenant && isLieutenant)
+            subordinates = new ArrayList<Soldier>();
+        this.isLieutenant = isLieutenant;
     }
 
     /**
