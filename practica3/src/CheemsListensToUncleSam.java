@@ -41,10 +41,13 @@ public class CheemsListensToUncleSam implements Soldier {
         gear = "";
         this.cheems = cheems;
         addCheemsEquipment(this.cheems);
-        if (captain && !lieutenant)
+        if (captain && !lieutenant) {
             isCaptain = true;
-        else if (!captain && lieutenant)
+            subordinates = new ArrayList<Soldier>();
+        } else if (!captain && lieutenant) {
             isLieutenant = true;
+            subordinates = new ArrayList<Soldier>();
+        }
 
         this.id = id;
         this.formation = formation;
@@ -276,11 +279,16 @@ public class CheemsListensToUncleSam implements Soldier {
     @Override
     public String toString() {
         String tabs = "\n\t\t";
+        String rank = "Private ";
         StringBuffer information = new StringBuffer();
-        if (isLieutenant)
+        if (isLieutenant) {
             tabs = "\n\t";
-        else if (isCaptain)
+            rank = "Lieutenant ";
+        } else if (isCaptain) {
             tabs = "\n";
+            rank = "Captain ";
+        }
+        information.append(tabs + rank);
         information.append(cheems.infoCheems());
         information.append(tabs + "Cheems: ").append(id);
         information.append(tabs + "Battalion formation: ").append(formation);

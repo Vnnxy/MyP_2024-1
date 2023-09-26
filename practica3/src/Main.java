@@ -33,7 +33,7 @@ public class Main {
 		Soldier t5 = new Lieutenant("5");
 		Soldier t6 = new Lieutenant("6");
 		CheemsSoldado cheemsSoldier = new CheemsSoldado("Cheems", 444);
-		Soldier cheems = new CheemsListensToUncleSam(cheemsSoldier, false, false, "444", "Get up");
+		Soldier cheems = new CheemsListensToUncleSam(cheemsSoldier, false, true, "444", "Get up");
 		t1 = new KevlarArmor(t1);
 		t4 = new GrapheneArmor(t4);
 		t6 = new DragonSlayerSword(t6);
@@ -58,7 +58,7 @@ public class Main {
 		t6.addSoldier(s14);
 		t6.addSoldier(s15);
 		c1.addSoldier(t1);
-		t1.addSoldier(cheems);
+		c1.addSoldier(cheems);
 		c1.addSoldier(t2);
 		c2.addSoldier(t3);
 		c2.addSoldier(t4);
