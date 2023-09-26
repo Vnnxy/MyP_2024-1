@@ -91,6 +91,7 @@ public class Main {
 					        cheems = equipCheems(sc, cheems);
 						System.out.println("Adding cheem to the first batallion");
 						c1.addSoldier(cheems);
+						c1.relayOrder(c1.getFormation());
 						c1.report();
 						break;
 					case 0:
