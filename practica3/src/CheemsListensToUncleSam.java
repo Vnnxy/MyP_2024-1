@@ -16,11 +16,11 @@ public class CheemsListensToUncleSam implements Soldier {
     /* The formation of the battalion. */
     private String formation;
     /* The damage points of the captain. */
-    private int dps;
+    private double dps;
     /* The speed points of the captain. */
-    private int speed;
+    private double speed;
     /* The defense points of the captain. */
-    private int defense;
+    private double defense;
     /* The gear the soldier will be using. */
     private String gear;
     /* The list of subordinates under Cheems if applicable. */
@@ -38,11 +38,11 @@ public class CheemsListensToUncleSam implements Soldier {
      * @param captain    boolean to know if it is a captain
      * @param lieutenant boolean to know if it is a lieutenant
      */
-    public CheemsListensToUncleSam(CheemsSoldado cheems, boolean captain, boolean lieutenant, String id,
+    public CheemsListensToUncleSam(boolean captain, boolean lieutenant, String id,
             String formation) {
-        gear = "";
-        this.cheems = cheems;
-        addCheemsEquipment(this.cheems);
+	CuartelCheems cuartel = new CuartelCheems();
+	this.cheems = cuartel.desplegarCheems();
+	this.cheems.activarReliquias();
         if (captain && !lieutenant) {
             isCaptain = true;
             subordinates = new ArrayList<Soldier>();
@@ -50,34 +50,12 @@ public class CheemsListensToUncleSam implements Soldier {
             isLieutenant = true;
             subordinates = new ArrayList<Soldier>();
         }
-
         this.id = id;
         this.formation = formation;
-        dps = 1;
-        speed = 1;
-        defense = 1;
-    }
-
-    /**
-     * 
-     * @param cheems Instance of CheemsSoldado needed for adding the equipment he
-     *               will be taking.
-     */
-
-    private void addCheemsEquipment(CheemsSoldado cheems) {
-        Reliquia gungnir = new Arma(1, "Gungnir", 5.1, "Nordico");
-        Reliquia mjolnir = new Arma(2, "Mjolnir", 3.4, "Nordico");
-        Reliquia hermes = new Vestimenta(3, "Sandalias de Hermes", 2.2, "Griego");
-        Reliquia botas = new Vestimenta(4, "Botas de 7 leguas", 1.9, "Europeo");
-        Reliquia hades = new Armadura(5, "Casco de Hades", 3.5, "Griego");
-        Reliquia aegis = new Armadura(6, "Escudo Aegis", 2.8, "Griego");
-
-        cheems.agregarReliquia(gungnir);
-        cheems.agregarReliquia(mjolnir);
-        cheems.agregarReliquia(hermes);
-        cheems.agregarReliquia(botas);
-        cheems.agregarReliquia(hades);
-        cheems.agregarReliquia(aegis);
+        dps = this.cheems.getAtaqueMagico();
+        speed = this.cheems.getMovimientoMagico();
+        defense = this.cheems.getDefensaMagica();
+	gear ="";
     }
 
     /**
@@ -103,60 +81,60 @@ public class CheemsListensToUncleSam implements Soldier {
     /**
      * Method that returns the soldier´s damage points.
      * 
-     * @return int damage points
+     * @return double damage points
      */
     @Override
-    public int getDp() {
+    public double getDp() {
         return dps;
     }
 
     /**
      * Method that sets the soldier´s damage points.
      * 
-     * @param int dp representing damage points
+     * @param double dp representing damage points
      */
     @Override
-    public void setDp(int dp) {
+    public void setDp(double dp) {
         this.dps = dp;
     }
 
     /**
      * Method that returns the soldier´s speed.
      * 
-     * @return int speed.
+     * @return double speed.
      */
     @Override
-    public int getSpeed() {
+    public double getSpeed() {
         return speed;
     }
 
     /**
      * Method that sets the soldier´s speed points.
      * 
-     * @param int speed representing speed points
+     * @param double speed representing speed points
      */
     @Override
-    public void setSpeed(int speed) {
+    public void setSpeed(double speed) {
         this.speed = speed;
     }
 
     /**
      * Method that returns the soldier´s defense points.
      * 
-     * @return int defense points
+     * @return double defense points
      */
     @Override
-    public int getDefense() {
+    public double getDefense() {
         return defense;
     }
 
     /**
      * Method that sets the soldier´s defense points.
      * 
-     * @param int defense representing defense points
+     * @param double defense representing defense points
      */
     @Override
-    public void setDefense(int defense) {
+    public void setDefense(double defense) {
         this.defense = defense;
     }
 
@@ -317,13 +295,15 @@ public class CheemsListensToUncleSam implements Soldier {
             rank = "Captain ";
         }
         information.append(tabs + rank);
-        information.append(cheems.infoCheems());
         information.append(tabs + "Cheems: ").append(id);
         information.append(tabs + "Battalion formation: ").append(formation);
-        information.append(tabs + "Damage: ").append(dps);
-        information.append(tabs + "Defense: ").append(defense);
-        information.append(tabs + "Speed: ").append(speed);
-        information.append(tabs + "Gear: ").append(gear);
+        information.append(tabs + "Damage with some magic: ").append(String.format("%.2f",dps));
+        information.append(tabs + "Defense with some magic: ").append(String.format("%.2f",defense));
+        information.append(tabs + "Speed with some magic: ").append(speed);
+        information.append(tabs + "Gear and relics: ").append(gear);
+	String[] array = this.cheems.mostrarReliquias().split("\n");
+	for (String s : array)
+	    information.append(tabs +s);
         return information.toString();
     }
 }

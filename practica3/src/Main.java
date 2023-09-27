@@ -33,8 +33,7 @@ public class Main {
 		Soldier t5 = new Lieutenant("5");
 		Soldier t6 = new Lieutenant("6");
 		/* Initialized an arbitrary cheem adaptator */
-		CheemsSoldado cheemsSoldier = new CheemsSoldado("Cheems", 444);
-		Soldier cheems = new CheemsListensToUncleSam(cheemsSoldier, false, false, "444", "Get up");
+		Soldier cheems = new CheemsListensToUncleSam(false, false, "444", "Get up");
 		t1 = new KevlarArmor(t1);
 		t4 = new GrapheneArmor(t4);
 		t6 = new DragonSlayerSword(t6);
@@ -68,6 +67,7 @@ public class Main {
 		c2.relayOrder(c2.getFormation());
 		c3.relayOrder(c3.getFormation());
 		Scanner sc = new Scanner(System.in);
+		boolean added = false;
 		while (true) {
 			System.out.println("Please choose an option: ");
 			System.out.println("1.- Equip a new Soldier.");
@@ -89,9 +89,12 @@ public class Main {
 						cheems.setIsLieutenant(true);
 						cheems.setIsCaptain(false);
 						cheems = equipCheems(sc, cheems);
-						System.out.println("Adding cheem to the first batallion");
-						c1.addSoldier(cheems);
-						c1.relayOrder(c1.getFormation());
+						if (!added){
+						    System.out.println("Adding cheem to the first batallion");
+						    c1.addSoldier(cheems);
+						    c1.relayOrder(c1.getFormation());
+						    added = true;
+						}
 						c1.report();
 						break;
 					case 0:

@@ -12,11 +12,11 @@ public class Captain implements Soldier {
     /* The formation of the battalion. */
     private String formation;
     /* The damage points of the captain. */
-    private int dps;
+    private double dps;
     /* The speed points of the captain. */
-    private int speed;
+    private double speed;
     /* The defense points of the captain. */
-    private int defense;
+    private double defense;
     /* The gear the soldier will be using. */
     private String gear;
     /* The list of lieutenants under the captain. */
@@ -59,54 +59,54 @@ public class Captain implements Soldier {
     /**
      * Method that returns the captain´s damage points.
      * 
-     * @return int damage points
+     * @return double damage points
      */
-    public int getDp() {
+    public double getDp() {
         return dps;
     }
 
     /**
      * Method that sets the soldier´s damage points.
      * 
-     * @param int dp representing damage points
+     * @param double dp representing damage points
      */
-    public void setDp(int dp) {
+    public void setDp(double dp) {
         this.dps = dp;
     }
 
     /**
      * Method that returns the captain´s speed.
      * 
-     * @return int speed.
+     * @return double speed.
      */
-    public int getSpeed() {
+    public double getSpeed() {
         return speed;
     }
 
     /**
      * Method that sets the soldier´s speed points.
      * 
-     * @param int speed representing speed points
+     * @param double speed representing speed points
      */
-    public void setSpeed(int speed) {
+    public void setSpeed(double speed) {
         this.speed = speed;
     }
 
     /**
      * Method that returns the captain´s defense points.
      * 
-     * @return int defense points
+     * @return double defense points
      */
-    public int getDefense() {
+    public double getDefense() {
         return defense;
     }
 
     /**
      * Method that sets the soldier´s defense points.
      * 
-     * @param int defense representing defense points
+     * @param double defense representing defense points
      */
-    public void setDefense(int defense) {
+    public void setDefense(double defense) {
         this.defense = defense;
     }
 
