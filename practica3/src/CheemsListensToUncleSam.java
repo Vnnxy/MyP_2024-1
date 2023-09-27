@@ -299,7 +299,7 @@ public class CheemsListensToUncleSam implements Soldier {
         information.append(tabs + "Battalion formation: ").append(formation);
         information.append(tabs + "Damage with some magic: ").append(String.format("%.2f",dps));
         information.append(tabs + "Defense with some magic: ").append(String.format("%.2f",defense));
-        information.append(tabs + "Speed with some magic: ").append(speed);
+        information.append(tabs + "Speed with some magic: ").append(String.format("%.2f",speed));
         information.append(tabs + "Gear and relics: ").append(gear);
 	String[] array = this.cheems.mostrarReliquias().split("\n");
 	for (String s : array)
