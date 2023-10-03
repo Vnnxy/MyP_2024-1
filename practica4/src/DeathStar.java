@@ -1,24 +1,39 @@
 public class DeathStar extends StarForge {
 
-    InterGalactic engine = new InterGalactic();
-    Fortress armor = new Fortress();
-    PlanetDestroyer weapon = new PlanetDestroyer();
-    Army cabin = new Army();
+    private Components engine;
+    private Components armor;
+    private Components weapon;
+    private Components cabin;
 
-    public void addJetEngine(JetEngine engine) {
-        parts.add(this.engine);
+    public DeathStar() {
+	this.engine = new InterGalactic();
+	this.armor = new Fortress();
+	this.weapon = new PlanetDestroyer();
+	this.cabin = new Army();
+	this.parts.add(engine);
+	this.parts.add(armor);
+	this.parts.add(weapon);
+	this.parts.add(cabin);
     }
 
-    public void addArmor(Armor armor) {
-        parts.add(this.armor);
+    public void addJetEngine(Components engine) {
+        System.out.println(noAddition());
     }
 
-    public void addWeapon(Weapons weapon) {
-        parts.add(this.weapon);
+    public void addArmor(Components armor) {
+         System.out.println(noAddition());
     }
 
-    public void addCabin(Cabin cabin) {
-        parts.add(this.cabin);
+    public void addWeapon(Components weapon) {
+         System.out.println(noAddition());
+    }
+
+    public void addCabin(Components cabin) {
+         System.out.println(noAddition());
+    }
+
+    private String noAddition(){
+	return "The Death Star has defined its components";
     }
 
 }

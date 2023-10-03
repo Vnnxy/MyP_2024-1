@@ -1,26 +1,10 @@
-public abstract class Armor extends Components {
-
-    public double getCredit() {
-        return 0;
-    }
-
-    public double getSpeed() {
-        return 0;
-    }
-
-    public double getDefense() {
-        return 0;
-    }
-
-    public double getWeight() {
-        return 0;
-    }
+public abstract class Armor implements Components {
 
     public double getAttack() {
-        return 0;
+	return 0;
     }
-
-    public abstract String getName();
-
-    public abstract String toString();
+    
+    public String toString() {
+	return "Armor and shields type: " + getName();
+    }
 }

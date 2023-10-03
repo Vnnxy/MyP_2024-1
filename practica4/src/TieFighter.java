@@ -1,24 +1,39 @@
 public class TieFighter extends StarForge {
 
-    InterContinental engine = new InterContinental();
-    Simple armor = new Simple();
-    SimpleLaser weapon = new SimpleLaser();
-    Individual cabin = new Individual();
+    private Components engine;
+    private Components armor;
+    private Components weapon;
+    private Components cabin;
 
-    public void addJetEngine(JetEngine engine) {
-        parts.add(this.engine);
+    public TieFighter() {
+	this.engine = new InterContinental();
+	this.armor = new Simple();
+	this.weapon = new SimpleLaser();
+	this.cabin = new Individual();
+	this.parts.add(engine);
+	this.parts.add(armor);
+	this.parts.add(weapon);
+	this.parts.add(cabin);
     }
 
-    public void addArmor(Armor armor) {
-        parts.add(this.armor);
+    public void addJetEngine(Components engine) {
+        System.out.println(noAddition());
     }
 
-    public void addWeapon(Weapons weapon) {
-        parts.add(this.weapon);
+    public void addArmor(Components armor) {
+         System.out.println(noAddition());
     }
 
-    public void addCabin(Cabin cabin) {
-        parts.add(this.cabin);
+    public void addWeapon(Components weapon) {
+         System.out.println(noAddition());
+    }
+
+    public void addCabin(Components cabin) {
+         System.out.println(noAddition());
+    }
+
+    private String noAddition(){
+	return "The Tie Fighter has defined its components";
     }
 
 }

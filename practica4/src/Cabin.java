@@ -1,18 +1,6 @@
-public abstract class Cabin extends Components {
-
-    public double getCredit() {
-        return 0;
-    }
-
-    public double getSpeed() {
-        return 0;
-    }
+public abstract class Cabin implements  Components {
 
     public double getDefense() {
-        return 0;
-    }
-
-    public double getWeight() {
         return 0;
     }
 
@@ -20,8 +8,8 @@ public abstract class Cabin extends Components {
         return 0;
     }
 
-    public abstract String getName();
-
-    public abstract String toString();
+    public String toString() {
+	return "Ship's company: " + getName();
+    }
 
 }

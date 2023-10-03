@@ -1,25 +1,16 @@
-public abstract class Components {
-    public double getCredit() {
-        return 0;
-    }
+public interface Components {
 
-    public double getSpeed() {
-        return 0;
-    }
+    public double getCredit();
 
-    public double getDefense() {
-        return 0;
-    }
+    public double getSpeed();
 
-    public double getWeight() {
-        return 0;
-    }
+    public double getDefense();
 
-    public double getAttack() {
-        return 0;
-    }
+    public double getWeight();
 
-    public abstract String getName();
+    public double getAttack();
 
-    public abstract String toString();
+    public String getName();
+
+    public String toString();
 }

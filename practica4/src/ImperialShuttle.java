@@ -1,24 +1,39 @@
 public class ImperialShuttle extends StarForge {
 
-    InterPlanetary engine = new InterPlanetary();
-    Reinforced armor = new Reinforced();
-    PlasmaBlaster weapon = new PlasmaBlaster();
-    SmallCrew cabin = new SmallCrew();
+    private Components engine;
+    private Components armor;
+    private Components weapon;
+    private Components cabin;
 
-    public void addJetEngine(JetEngine engine) {
-        parts.add(this.engine);
+    public ImperialShuttle() {
+	this.engine = new InterPlanetary();
+	this.armor = new Reinforced();
+	this.weapon = new PlasmaBlaster();
+	this.cabin = new SmallCrew();
+	this.parts.add(engine);
+	this.parts.add(armor);
+	this.parts.add(weapon);
+	this.parts.add(cabin);
     }
 
-    public void addArmor(Armor armor) {
-        parts.add(this.armor);
+    public void addJetEngine(Components engine) {
+        System.out.println(noAddition());
     }
 
-    public void addWeapon(Weapons weapon) {
-        parts.add(this.weapon);
+    public void addArmor(Components armor) {
+         System.out.println(noAddition());
     }
 
-    public void addCabin(Cabin cabin) {
-        parts.add(this.cabin);
+    public void addWeapon(Components weapon) {
+         System.out.println(noAddition());
+    }
+
+    public void addCabin(Components cabin) {
+         System.out.println(noAddition());
+    }
+
+    private String noAddition(){
+	return "The Imperial Shuttle has defined its components";
     }
 
 }
