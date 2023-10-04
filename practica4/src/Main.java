@@ -30,7 +30,7 @@ public class Main {
             customShip = new CustomShip();
             chooseParts(sc, customShip);
             SpaceShip spaceShip = customShip.getSpaceShip();
-            System.out.println(String.format("This new ship price is: %.2f", spaceShip.getCredit()));
+            System.out.println(spaceShip.toString());
             if (spaceShip.getCredit() <= budget) {
                 System.out.println(
                         String.format("What a great ship!!. Please pay the %.2f to my droid", spaceShip.getCredit()));
@@ -59,6 +59,8 @@ public class Main {
                                     return;
                                 } else {
                                     System.out.println("Please don't come here if you are broke!");
+				    System.out.println("Press enter to end: ");
+				    String s = sc.nextLine();
                                     return;
                                 }
                             default:
@@ -224,6 +226,9 @@ public class Main {
                         return new ImperialShuttle();
                     case 3:
                         return new DeathStar();
+		    default:
+			System.out.println("Please write a valid option");
+			continue;
                 }
             } catch (NumberFormatException nfe) {
                 System.out.println("Please write a valid option");
