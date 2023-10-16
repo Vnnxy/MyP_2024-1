@@ -11,9 +11,9 @@ public class Cherry extends Food {
     /* The name of the product */
     private String name = "Cherry";
     /* The description of the product */
-    private String description = "Some normal cherries";
+    private String description = "Una cereza";
     /* The type of the product */
-    private String type = "Food";
+    private String type = "Comida";
     /* The price of the product */
     private int price = 200;
 

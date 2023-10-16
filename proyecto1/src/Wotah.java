@@ -9,11 +9,11 @@ public class Wotah extends Food {
     /* The id of the product */
     private int id = 2001;
     /* The name of the product */
-    private String name = "Wotah";
+    private String name = "Agua";
     /* The description of the product */
-    private String description = "Exquisite wotah extracted from the depths of the Bolivian Sea";
+    private String description = "Agua extraída de las islas Fiji";
     /* The type of the product */
-    private String type = "Food";
+    private String type = "Comida";
     /* The price of the product */
     private int price = 100000;
 

@@ -9,11 +9,11 @@ public class Refrigerator extends Electrodomestics {
     /* The id of the product */
     private int id = 1001;
     /* The name of the product */
-    private String name = "Refrigerator";
+    private String name = "Refrigerador";
     /* The description of the product */
-    private String description = "A cooling device";
+    private String description = "Esencial para mantener frescos los productos";
     /* The type of the product */
-    private String type = "Electrodomestics";
+    private String type = "Electrodomesticos";
     /* The price of the product */
     private int price = 2000;
 

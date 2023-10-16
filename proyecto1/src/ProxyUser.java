@@ -20,10 +20,10 @@ public class ProxyUser implements UserInterface {
      * Validates if the accounts between the user and the server match
      * 
      * @param account the bank account
+     * @return true if the account is correct
      */
-    public void validate(int account) {
-        user.validate(account);
-
+    public boolean validate(int account) {
+        return user.validate(account);
     }
 
     /**

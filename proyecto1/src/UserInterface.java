@@ -16,8 +16,9 @@ public interface UserInterface {
      * Validates if the accounts between the user and the server match
      * 
      * @param account the bank account
+     * @return true if the account is correct
      */
-    public void validate(int account);
+    public boolean validate(int account);
 
     /**
      * Public getter for the bank account

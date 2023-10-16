@@ -9,11 +9,11 @@ public class Microwave extends Electrodomestics {
     /* The id of the product */
     private int id = 1002;
     /* The name of the product */
-    private String name = "Microwave";
+    private String name = "Microhondas";
     /* The description of the product */
-    private String description = "A heating device";
+    private String description = "Perfecto para calentar la comida.";
     /* The type of the product */
-    private String type = "Electrodomestics";
+    private String type = "Electrodomesticos";
     /* The price of the product */
     private int price = 4000;
 

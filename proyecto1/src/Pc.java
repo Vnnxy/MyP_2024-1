@@ -11,9 +11,9 @@ public class Pc extends ElectricDevices {
     /* The name of the product */
     private String name = "Pc";
     /* The description of the product */
-    private String description = "Fan noises...";
+    private String description = "ütil para jugar y trabajar";
     /* The type of the product */
-    private String type = "Electric Devices";
+    private String type = "Dispositivos Eléctricos";
     /* The price of the product */
     private int price = 8000;
 
