@@ -71,6 +71,11 @@ public class Wii extends ElectricDevices {
         return type;
     }
 
+    /**
+     * Clones the product
+     * 
+     * @return clone
+     */
     public Product clone() {
         return (Product) this.clone();
     }
