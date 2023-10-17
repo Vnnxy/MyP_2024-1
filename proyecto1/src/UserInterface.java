@@ -10,7 +10,7 @@ public interface UserInterface {
      * 
      * @param price the price of the shopping cart
      */
-    public void setBalance(int price);
+    public void pay(int price);
 
     /**
      * Validates if the accounts between the user and the server match

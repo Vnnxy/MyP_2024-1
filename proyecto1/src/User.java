@@ -3,7 +3,7 @@
  * 
  * @author equipo.
  */
-public class User implements UserInterface {
+public class User implements UserInterface, Observer {
     /* The id of the user */
     private int id;
     /* The password of the user */
@@ -25,6 +25,18 @@ public class User implements UserInterface {
     /* The balance of the user */
     private int balance;
 
+    public User(UserBuilder builder) {
+        id = builder.getId();
+        password = builder.getPassword();
+        username = builder.getUsername();
+        name = builder.getName();
+        country = builder.getCountry();
+        phone = builder.getPhone();
+        account = builder.getAccount();
+        address = builder.getAdress();
+        hasDeal = false;
+    }
+
     /**
      * Sets the deals for the user
      * 
@@ -39,8 +51,17 @@ public class User implements UserInterface {
      * 
      * @param price the price of the shopping cart
      */
-    public void setBalance(int price) {
+    public void pay(int price) {
         this.balance = balance - price;
+    }
+
+    /**
+     * Sets the balance of the user
+     * 
+     * @param deposit The money the users wants to add.
+     */
+    public void setBalance(int deposit) {
+        this.balance = deposit;
     }
 
     /**
@@ -50,7 +71,7 @@ public class User implements UserInterface {
      * @return true if the account mathces
      */
     public boolean validate(int account) {
-	return account == this.account;
+        return account == this.account;
     }
 
     /**

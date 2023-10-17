@@ -7,12 +7,16 @@ public class ProxyUser implements UserInterface {
     /* The user the proxy will be interacting with */
     private User user;
 
+    public ProxyUser(User user) {
+        this.user = user;
+    }
+
     /**
      * Sets the new balance of the user
      * 
      * @param price the price of the shopping cart
      */
-    public void setBalance(int price) {
+    public void pay(int price) {
         user.setBalance(price);
     }
 
