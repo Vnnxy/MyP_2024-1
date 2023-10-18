@@ -11,9 +11,9 @@ public class Pc extends ElectricDevices {
     /* The name of the product */
     private String name = "Pc";
     /* The description of the product */
-    private String description = "ütil para jugar y trabajar";
+    private String description = "util para jugar y trabajar";
     /* The type of the product */
-    private String type = "Dispositivos Eléctricos";
+    private String type = "Dispositivos Electricos";
     /* The price of the product */
     private int price = 8000;
 
@@ -71,8 +71,18 @@ public class Pc extends ElectricDevices {
         return type;
     }
 
-    public Product clone() {
-        return (Product) this.clone();
+    /**
+     * Creates a string representation of the product. Giving details about it.
+     * 
+     * @return String representation of the product.
+     */
+    public String toString() {
+        StringBuffer sb = new StringBuffer();
+        sb.append("ID: " + id + "\n");
+        sb.append("\t" + "Nombre: " + name + "\n");
+        sb.append("\t" + "Descripción: " + description + "\n");
+        sb.append("\t" + "Departamento: " + type + "\n");
+        sb.append("\t" + "Precio: " + price + "\n");
+        return sb.toString();
     }
-
 }

@@ -71,7 +71,11 @@ public abstract class ElectricDevices implements Product {
         return type;
     }
 
-    public Product clone() {
-        return (Product) this.clone();
-    }
+    /**
+     * Creates a string representation of the product. Giving details about it.
+     * 
+     * @return String representation of the product.
+     */
+    public abstract String toString();
+
 }

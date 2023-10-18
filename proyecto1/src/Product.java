@@ -4,7 +4,7 @@
  * @author equipo.
  */
 
-public interface Product extends Cloneable {
+public interface Product {
 
     /**
      * Public getter for the price of the product
@@ -48,5 +48,10 @@ public interface Product extends Cloneable {
      */
     public String getType();
 
-    public abstract Product clone() throws CloneNotSupportedException;
+    /**
+     * Creates a string representation of the product. Giving details about it.
+     * 
+     * @return String representation of the product.
+     */
+    public abstract String toString();
 }

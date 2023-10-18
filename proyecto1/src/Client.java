@@ -9,10 +9,6 @@ public class Client {
 
     /* The language of the client */
     private Language language;
-    /* The shopping cart */
-    private ArrayList<Product> cart;
-    /* The Catalogue iterator */
-    private Iterator<Product> catalogue;
 
     /**
      * Public Constructor for the CLient.
@@ -21,7 +17,6 @@ public class Client {
      */
     public Client(Language language) {
         this.language = language;
-        cart = new ArrayList<Product>();
     }
 
     /**
@@ -33,15 +28,6 @@ public class Client {
         while (iterator.hasNext()) {
             System.out.println(String.format("\t %s \n", iterator.next().toString()));
         }
-    }
-
-    /**
-     * Method to add a product to the shopping cart
-     * 
-     * @param product The desired product
-     */
-    public void addProduct(Product product) {
-        cart.add(product);
     }
 
     /**
@@ -117,6 +103,51 @@ public class Client {
      */
     public String falseAccount() {
         return language.falseAccount();
+    }
+
+    /**
+     * Method that gives the thanks to the user.
+     * 
+     * @return the thanks message
+     */
+    public String thanks() {
+        return language.thanks();
+    }
+
+    /**
+     * Method that tells the user the bank contact.
+     * 
+     * @return The bank message
+     */
+    public String bank() {
+        return language.bank();
+    }
+
+    /**
+     * Method that tells the user it can't buy the prodduct.
+     * 
+     * @return The message saying it has no money
+     */
+    public String notEnoughMoney() {
+        return language.notEnoughMoney();
+    }
+
+    /**
+     * Method that tells the current cart
+     * 
+     * @return The current cart
+     */
+    public String cart() {
+        return language.cart();
+    }
+
+    /**
+     * Method that prints if the user has deal
+     * 
+     * @return If it has a deal
+     */
+    public String deal() {
+        return language.deal();
     }
 
 }

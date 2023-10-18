@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Class representing the User.
  * 
@@ -23,9 +25,14 @@ public class User implements UserInterface, Observer {
     /* Boolean representing if the user has a deal or not */
     private boolean hasDeal;
     /* The balance of the user */
-    private int balance;
+    private double balance;
+    /* The shopping cart */
+    private ArrayList<Product> cart;
+    /* The total cost */
+    private double total;
 
     public User(UserBuilder builder) {
+        cart = new ArrayList<>();
         id = builder.getId();
         password = builder.getPassword();
         username = builder.getUsername();
@@ -34,6 +41,7 @@ public class User implements UserInterface, Observer {
         phone = builder.getPhone();
         account = builder.getAccount();
         address = builder.getAdress();
+        balance = builder.getBalance();
         hasDeal = false;
     }
 
@@ -47,12 +55,39 @@ public class User implements UserInterface, Observer {
     }
 
     /**
+     * Getter for the deals
+     * 
+     * @return If the user has a deal.
+     */
+    public boolean hasDeal() {
+        return hasDeal;
+    }
+
+    /**
+     * Public getter for the balance of the bank account
+     * 
+     * @return the balance
+     */
+    public double getBalance() {
+        return balance;
+    }
+
+    /**
      * Sets the new balance of the user
      * 
      * @param price the price of the shopping cart
      */
-    public void pay(int price) {
+    public void pay(double price) {
         this.balance = balance - price;
+        total = price;
+    }
+
+    /**
+     * Sets the new balance of the user
+     * 
+     * @param price the price of the shopping cart
+     */
+    public void pay() {
     }
 
     /**
@@ -102,12 +137,30 @@ public class User implements UserInterface, Observer {
     }
 
     /**
+     * Public getter for the user's password
+     * 
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
      * Public setter for the user's username
      * 
      * @param username the username
      */
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    /**
+     * Public getter for the user's username
+     * 
+     * @return the username
+     */
+    public String getUsername() {
+        return username;
     }
 
     /**
@@ -153,6 +206,41 @@ public class User implements UserInterface, Observer {
      */
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    /**
+     * Getter for the user's country of residence
+     * 
+     * @return The country of the user.
+     */
+    public String getCountry() {
+        return country;
+    }
+
+    /**
+     * Method to add a product to the shopping cart
+     * 
+     * @param product The desired product
+     */
+    public void addProduct(Product product) {
+        cart.add(product);
+    }
+
+    /**
+     * Updates the shopping cart with the one of the proxy.
+     * 
+     * @param list The proxy's shopping cart
+     */
+    public void updateList(ArrayList<Product> list) {
+        cart = list;
+    }
+
+    /**
+     * Method that resets the shopping cart and the total for a new session.
+     */
+    public void reset() {
+        cart.clear();
+        total = 0;
     }
 
 }

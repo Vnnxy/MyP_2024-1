@@ -21,7 +21,7 @@ public class UserBuilder implements UserBuilderInterface {
     /* The address of the user */
     private String address;
     /* The balance of the user */
-    private int balance = 0;
+    private int balance;
 
     /**
      * Sets the new balance of the user

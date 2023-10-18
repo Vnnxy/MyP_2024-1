@@ -35,7 +35,8 @@ public class Catalogue implements Iterable<Product> {
      * @return The desired product.
      */
     public Product getProduct(int id) {
-        return products.get(id);
+        Product product = products.get(id);
+        return product;
     }
 
     /**

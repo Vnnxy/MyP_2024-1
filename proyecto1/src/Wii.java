@@ -13,7 +13,7 @@ public class Wii extends ElectricDevices {
     /* The description of the product */
     private String description = "Consola ed videojuegos";
     /* The type of the product */
-    private String type = "Dispositivo Electrico";
+    private String type = "Dispositivos Electricos";
     /* The price of the product */
     private int price = 5000;
 
@@ -72,11 +72,18 @@ public class Wii extends ElectricDevices {
     }
 
     /**
-     * Clones the product
+     * Creates a string representation of the product. Giving details about it.
      * 
-     * @return clone
+     * @return String representation of the product.
      */
-    public Product clone() {
-        return (Product) this.clone();
+    public String toString() {
+        StringBuffer sb = new StringBuffer();
+        sb.append("ID: " + id + "\n");
+        sb.append("\t" + "Nombre: " + name + "\n");
+        sb.append("\t" + "Descripción: " + description + "\n");
+        sb.append("\t" + "Departamento: " + type + "\n");
+        sb.append("\t" + "Precio: " + price + "\n");
+        return sb.toString();
     }
+
 }

@@ -71,8 +71,19 @@ public class Wotah extends Food {
         return type;
     }
 
-    public Product clone() {
-        return (Product) this.clone();
+    /**
+     * Creates a string representation of the product. Giving details about it.
+     * 
+     * @return String representation of the product.
+     */
+    public String toString() {
+        StringBuffer sb = new StringBuffer();
+        sb.append("ID: " + id + "\n");
+        sb.append("\t" + "Nombre: " + name + "\n");
+        sb.append("\t" + "Descripción: " + description + "\n");
+        sb.append("\t" + "Departamento: " + type + "\n");
+        sb.append("\t" + "Precio: " + price + "\n");
+        return sb.toString();
     }
 
 }
