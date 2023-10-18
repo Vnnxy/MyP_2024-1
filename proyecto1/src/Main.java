@@ -107,6 +107,10 @@ public class Main {
                     case 1:
                         break;
                     case 2:
+                        if (proxy.isEmpty()) {
+                            System.out.println(client.empty());
+                            break;
+                        }
                         if (!proxy.hasEnoughMoney()) {
                             System.out.println(client.notEnoughMoney());
                             proxy.reset();

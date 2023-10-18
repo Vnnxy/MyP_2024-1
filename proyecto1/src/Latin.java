@@ -128,6 +128,15 @@ public class Latin implements Language {
      * @return If it has a deal
      */
     public String deal() {
-        return "Tienes 20% de descuento en Alimentos! \\n" + " Recuerda que el descuento se aplica al final";
+        return "Tienes 20% de descuento en Alimentos! \n" + " Recuerda que el descuento se aplica al final";
+    }
+
+    /**
+     * Method that prints an error if the cart is empty
+     * 
+     * @return the message
+     */
+    public String empty() {
+        return "Primero agrega algo a tu carrito";
     }
 }

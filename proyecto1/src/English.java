@@ -130,4 +130,13 @@ public class English implements Language {
     public String deal() {
         return "You have 20% off on Electronic Devices! \n Remember that the discount is applied at the end.";
     }
+
+    /**
+     * Method that prints an error if the cart is empty
+     * 
+     * @return the message
+     */
+    public String empty() {
+        return "You can't buy nothing";
+    }
 }

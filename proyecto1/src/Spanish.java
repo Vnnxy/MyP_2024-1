@@ -130,4 +130,13 @@ public class Spanish implements Language {
     public String deal() {
         return "Ostia, tienes 20% de descuento en electrodomésticos. \n Recuerda que el descuento se aplica al final";
     }
+
+    /**
+     * Method that prints an error if the cart is empty
+     * 
+     * @return the message
+     */
+    public String empty() {
+        return "Agregad algo al carro";
+    }
 }

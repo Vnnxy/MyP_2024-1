@@ -175,4 +175,13 @@ public class ProxyUser implements UserInterface {
         user.reset();
     }
 
+    /**
+     * Method that tells wheteher the cart is empty
+     * 
+     * @return true if the cart is empty
+     */
+    public boolean isEmpty() {
+        return cart.isEmpty();
+    }
+
 }

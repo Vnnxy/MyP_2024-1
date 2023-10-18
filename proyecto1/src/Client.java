@@ -150,4 +150,13 @@ public class Client {
         return language.deal();
     }
 
+    /**
+     * Method that prints an error if the cart is empty
+     * 
+     * @return the message
+     */
+    public String empty() {
+        return language.empty();
+    }
+
 }
