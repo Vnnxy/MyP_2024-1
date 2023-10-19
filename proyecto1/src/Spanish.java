@@ -33,7 +33,7 @@ public class Spanish implements Language {
      * @return the message
      */
     public String validOption() {
-        return "Os invitamos a escojer una opción válida.";
+        return "Os invitamos a escoger una opción válida.";
     }
 
     /**
