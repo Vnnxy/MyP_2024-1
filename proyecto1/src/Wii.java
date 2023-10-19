@@ -11,7 +11,7 @@ public class Wii extends ElectricDevices {
     /* The name of the product */
     private String name = "Wii";
     /* The description of the product */
-    private String description = "Consola ed videojuegos";
+    private String description = "Consola de videojuegos";
     /* The type of the product */
     private String type = "Dispositivos Electricos";
     /* The price of the product */
