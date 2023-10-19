@@ -74,7 +74,7 @@ public class ProxyUser implements UserInterface {
             if (product.getType().equals(type))
                 discount += product.getPrice();
         }
-        discount = (int) discount * .2;
+        discount =  discount * .2;
     }
 
     /**
