@@ -11,12 +11,12 @@ public class Catalogue implements Iterable<Product> {
     /* The hashmap containing the products mapped to their respective id's */
     private HashMap<Integer, Product> products = new HashMap<>();
     /* The Refrigerator */
-    Product refrigerator = new Refrigerator();
-    Product microwave = new Microwave();
-    Product wotah = new Wotah();
-    Product cherry = new Cherry();
-    Product pc = new Pc();
-    Product wii = new Wii();
+    private Product refrigerator = new Refrigerator();
+    private Product microwave = new Microwave();
+    private Product wotah = new Wotah();
+    private Product cherry = new Cherry();
+    private Product pc = new Pc();
+    private Product wii = new Wii();
 
     /* Public constructor */
     public Catalogue() {
