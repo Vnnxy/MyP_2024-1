@@ -4,6 +4,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.stage.Stage;
+import java.io.*;
+import java.net.*;
+import java.util.*;
+import Client;
+import Language;
+import Spanish;
+import English;
 
 public class PrimaryController {
 
@@ -33,6 +41,21 @@ public class PrimaryController {
 
     @FXML
     private Label welcomeText;
+
+    private Client client;
+
+    private Language language;
+
+    private boolean isConnected;
+
+    private Stage stage;
+
+    @FXML private void initialize() {
+	languague = new English();
+	loadButton.setDisable(true);
+	editButton.setDisable(true);
+	logoutItem.setDisable(true);
+    }
 
     @FXML
     void changeLanguage(ActionEvent event) {

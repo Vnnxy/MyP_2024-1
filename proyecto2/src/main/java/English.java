@@ -7,6 +7,51 @@
 public class English implements Language {
 
     /**
+     * Title of the main pane
+     * 
+     * @return the title
+     */
+    public String mainPane(){
+	return "Project 2";
+    }
+
+    /**
+     * Title of the connect pane
+     * 
+     * @return the title
+     */
+    public String connectPane(){
+	return "Connect to server";
+    }
+
+    /**
+     * Title of the language pane
+     * 
+     * @return the title
+     */
+    public String languagePane(){
+	return "Select a language";
+    }
+
+    /**
+     * Title of the list pane
+     * 
+     * @return the title
+     */
+    public String listPane(){
+	return "Choose a file";
+    }
+
+    /**
+     * Title of the text pane
+     * 
+     * @return the title
+     */
+    public String textPane(){
+	return "View and Edit";
+    }
+
+    /**
      * Message for change language menu item
      * 
      * @return the message

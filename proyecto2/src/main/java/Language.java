@@ -7,6 +7,41 @@
 public interface Language {
 
     /**
+     * Title of the main pane
+     * 
+     * @return the title
+     */
+    public String mainPane();
+
+    /**
+     * Title of the connect pane
+     * 
+     * @return the title
+     */
+    public String connectPane();
+
+    /**
+     * Title of the language pane
+     * 
+     * @return the title
+     */
+    public String languagePane();
+
+    /**
+     * Title of the list pane
+     * 
+     * @return the title
+     */
+    public String listPane();
+
+    /**
+     * Title of the text pane
+     * 
+     * @return the title
+     */
+    public String textPane();
+
+    /**
      * Message for change language menu item
      * 
      * @return the message

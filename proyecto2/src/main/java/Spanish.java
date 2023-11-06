@@ -7,6 +7,50 @@
 public class Spanish implements Language {
 
     /**
+     * Title of the main pane
+     * 
+     * @return the title
+     */
+    public String mainPane(){
+	return "Proyecto 2";
+    }
+
+    /**
+     * Title of the connect pane
+     * 
+     * @return the title
+     */
+    public String connectPane(){
+	return "Conectarse al servidor";
+    }
+
+    /**
+     * Title of the language pane
+     * 
+     * @return the title
+     */
+    public String languagePane(){
+	return "Selecciona un idioma";
+    }
+
+    /**
+     * Title of the list pane
+     * 
+     * @return the title
+     */
+    public String listPane(){
+	return "Selecciona un archivo";
+    }
+
+    /**
+     * Title of the text pane
+     * 
+     * @return the title
+     */
+    public String textPane(){
+	return "Ver y Editar";
+    }
+    /**
      * Message for change language menu item
      * 
      * @return the message
