@@ -129,7 +129,6 @@ public class PrimaryController {
     private void loadFile(ActionEvent event) {
 	FileChooser fc = new FileChooser();
 	fc.setTitle(language.fileChooser());
-	fc.getExtensionFilters().addAll(new ExtensionFilter("","*.txt"));
 	File file = fc.showOpenDialog(stage);
 	if (file != null){
 	    try{

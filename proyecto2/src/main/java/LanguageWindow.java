@@ -4,6 +4,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class LanguageWindow extends Stage {
 
@@ -16,6 +17,7 @@ public class LanguageWindow extends Stage {
 	FXMLLoader loader = new FXMLLoader(cl.getResource(FXML));
 	AnchorPane pane = (AnchorPane)loader.load();
 	setTitle(language.languagePane());
+	initStyle(StageStyle.UNDECORATED);
 	initOwner(stage);
 	initModality(Modality.WINDOW_MODAL);
 	Scene scene = new Scene(pane);
