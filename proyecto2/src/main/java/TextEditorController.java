@@ -27,66 +27,67 @@ public class TextEditorController {
 
     private String fileContent;
 
-    @FXML private void initialize(){
-	textSpace.setEditable(false);
+    @FXML
+    private void initialize() {
+        textSpace.setEditable(false);
     }
 
-    public void setStage(Stage stage){
-	this.stage = stage;
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 
-    public void setLanguage(Language language){
-	this.language = language;
-	updateLanguage();
+    public void setLanguage(Language language) {
+        this.language = language;
+        updateLanguage();
     }
 
     private void updateLanguage() {
-	editButton.setText(language.editTButton());
-	saveButton.setText(language.saveButton());
+        editButton.setText(language.editTButton());
+        saveButton.setText(language.saveButton());
     }
 
-    public void setClient(Client client){
-	this.client = client;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
-    public void setFileName(String fileName){
-	this.fileName = fileName;
-	setContent();
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+        setContent();
     }
 
-    private void setContent(){
-	try{
-	    fileContent = client.getContent(fileName);
-	    textSpace.appendText(fileContent);
-	} catch (Exception e) {
-	    error();
-	    stage.close();
-	}
+    private void setContent() {
+        try {
+            fileContent = client.getContent(fileName);
+            textSpace.appendText(fileContent);
+        } catch (Exception e) {
+            error();
+            stage.close();
+        }
     }
 
-    private void error(){
-	Alert alert = new Alert(AlertType.ERROR);
-	alert.setTitle("Error");
-	alert.setHeaderText(null);
-	alert.setContentText(language.error());
-	alert.showAndWait();
+    private void error() {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText(language.error());
+        alert.showAndWait();
     }
 
     @FXML
     private void edit(ActionEvent event) {
-	textSpace.setEditable(true);
+        textSpace.setEditable(true);
     }
 
     @FXML
     private void save(ActionEvent event) {
-	fileContent = textSpace.getText();
-	try{
-	    client.editFile(fileName,fileContent);
-	    stage.close();
-	} catch (Exception e){
-	    error();
-	    stage.close();
-	}
+        fileContent = textSpace.getText();
+        try {
+            client.editFile(fileName, fileContent);
+            stage.close();
+        } catch (Exception e) {
+            error();
+            stage.close();
+        }
     }
 
 }
