@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Alert;
 import java.io.IOException;
+import java.util.*;
 
 public class ListController {
 
@@ -72,7 +73,7 @@ public class ListController {
     @FXML
     private void fileSelected(ActionEvent event) {
 	fileName = filesList.getSelectionModel().getSelectedItem();
-	TextEditorWindow window;
+	TextEditorWindow window = null;
 	try{
 	    window = new TextEditorWindow(stage,language,client,fileName);
 	} catch (IOException ioe){
@@ -80,7 +81,7 @@ public class ListController {
 	    stage.close();
 	}
 	window.showAndWait();
-	stage.close()
+	stage.close();
     }
 
     @FXML

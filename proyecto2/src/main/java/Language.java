@@ -193,6 +193,6 @@ public interface Language {
      * 
      * @return the message
      */
-    public String FileChooser();
+    public String fileChooser();
     
 }

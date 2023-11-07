@@ -245,7 +245,7 @@ public class English implements Language {
      * 
      * @return the message
      */
-    public String FileChooser(){
+    public String fileChooser(){
 	return "Select a file";
     }
     

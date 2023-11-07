@@ -27,7 +27,7 @@ public class LanguageController {
 	String[] l = {"English","Spanish"};
 	languageChoice.getItems().addAll(l);
 	languageChoice.setValue("English");
-	languageChoice.requestFoocus();
+	languageChoice.requestFocus();
 	languageButton.setDisable(false);
     }
 

@@ -48,7 +48,7 @@ public class PrimaryController {
     private Stage stage;
 
     @FXML private void initialize() {
-	languague = new English();
+	language = new English();
 	loadButton.setDisable(true);
 	editButton.setDisable(true);
 	logoutItem.setDisable(true);
