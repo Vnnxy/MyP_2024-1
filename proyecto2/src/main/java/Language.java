@@ -180,5 +180,12 @@ public interface Language {
      * @return the message
      */
     public String saveButton();
+
+    /**
+     * Message for error
+     * 
+     * @return the message
+     */
+    public String error();
     
 }

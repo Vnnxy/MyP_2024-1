@@ -229,5 +229,14 @@ public class Spanish implements Language {
     public String saveButton(){
 	return "Guardar";
     }
+
+     /**
+     * Message for error
+     * 
+     * @return the message
+     */
+    public String error(){
+	return "Ocurrió un error";
+    }
     
 }

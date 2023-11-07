@@ -230,5 +230,14 @@ public class English implements Language {
     public String saveButton(){
 	return "Save";
     }
+
+     /**
+     * Message for error
+     * 
+     * @return the message
+     */
+    public String error(){
+	return "An error ocurred";
+    }
     
 }
