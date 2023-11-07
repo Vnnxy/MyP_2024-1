@@ -238,5 +238,14 @@ public class Spanish implements Language {
     public String error(){
 	return "Ocurrió un error";
     }
+
+    /**
+     * Message for fileChooser
+     * 
+     * @return the message
+     */
+    public String FileChooser(){
+	return "Selecciona un archivo";
+    }
     
 }

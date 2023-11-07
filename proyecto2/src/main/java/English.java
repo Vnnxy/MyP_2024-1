@@ -239,5 +239,14 @@ public class English implements Language {
     public String error(){
 	return "An error ocurred";
     }
+
+    /**
+     * Message for fileChooser
+     * 
+     * @return the message
+     */
+    public String FileChooser(){
+	return "Select a file";
+    }
     
 }

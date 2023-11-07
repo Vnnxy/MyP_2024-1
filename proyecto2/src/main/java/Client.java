@@ -9,7 +9,7 @@ public class Client {
     private HashMap<String,String> files;
     private int c;
 
-    public Client() throws IOException {
+    public Client(String ad, int p) throws IOException {
 	files = new HashMap<String,String>();
 	files.put("file1.txt","this is file 1");
 	files.put("file2.txt","this is file 2");

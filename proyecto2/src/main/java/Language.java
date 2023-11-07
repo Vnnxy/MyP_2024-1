@@ -187,5 +187,12 @@ public interface Language {
      * @return the message
      */
     public String error();
+
+     /**
+     * Message for fileChooser
+     * 
+     * @return the message
+     */
+    public String FileChooser();
     
 }
