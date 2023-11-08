@@ -60,7 +60,8 @@ public class Client {
         obs.writeObject(filename);
         ModifiedFile modified = null;
         try {
-            modified = new ModifiedFile((VersionFile) ois.readObject(), "akira", "nada");
+            java.util.Date date = new java.util.Date();
+            modified = new ModifiedFile((VersionFile) ois.readObject(), "Client", "at" + date);
         } catch (Exception e) {
         }
         modified.setContent(content);

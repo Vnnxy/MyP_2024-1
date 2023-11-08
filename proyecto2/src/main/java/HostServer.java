@@ -17,12 +17,14 @@ public class HostServer {
     /* The port where the socket will be initialized. */
     private int port;
 
+    private final String logName = "logs";
+
     /** Public constructor for the server */
     public HostServer(int port) {
         this.port = port;
         findDir();
         String dirPath = new File(dirName).getAbsolutePath();
-        directory = new Directory(dirPath+"/");
+        directory = new Directory(dirPath + "/");
     }
 
     /**
@@ -43,8 +45,8 @@ public class HostServer {
     private void findDir() {
         String currentPath = System.getProperty("user.dir");
         try {
-            System.out.println(Paths.get(currentPath + "/" + dirName));
             Files.createDirectories(Paths.get(currentPath + "/" + dirName));
+            Files.createDirectories(Paths.get(currentPath + "/" + logName));
         } catch (IOException ioe) {
             System.out.println("Failed to created dir");
         }

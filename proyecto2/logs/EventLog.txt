@@ -1,0 +1,14 @@
+EventLogCLIENT CONNECTEDatTue Nov 07 18:10:55 CST 2023
+END_CONNECTIONatTue Nov 07 18:12:13 CST 2023
+REQUEST_FILE:Requested File:Practica5.hs~
+SAVE:Name: Practica5.hs~
+Version: 0.0
+REQUEST_FILES:
+MODIFY:Name: Practica5.hs~
+Version: 3.0
+User: Client
+Changes: atTue Nov 07 18:11:51 CST 2023
+User: Client
+Changes: atTue Nov 07 18:12:04 CST 2023
+User: Client
+Changes: atTue Nov 07 18:12:11 CST 2023

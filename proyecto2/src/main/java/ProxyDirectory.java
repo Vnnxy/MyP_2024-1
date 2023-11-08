@@ -24,6 +24,10 @@ public class ProxyDirectory implements DirectoryInterface {
     /* The ip address of the server the directory is located */
     private String ip;
 
+    private Log log = new Log();
+
+    private LogBuilder logBuilder = new LogBuilder();
+
     /**
      * Constructor of the proxy.
      */
@@ -75,7 +79,7 @@ public class ProxyDirectory implements DirectoryInterface {
         return directory.iterator();
     }
 
-    /** 
+    /**
      * Private method to return the iterator of the
      * directory through the socket
      */
@@ -88,7 +92,8 @@ public class ProxyDirectory implements DirectoryInterface {
         }
         try {
             obs.writeObject(files);
-        } catch (IOException ioe) {}
+        } catch (IOException ioe) {
+        }
     }
 
     /**
@@ -99,6 +104,7 @@ public class ProxyDirectory implements DirectoryInterface {
             while (true) {
                 System.out.println("Esperando conexiones");
                 clientSocket = serverSocket.accept();
+                logBuilder.addConnections("CLIENT CONNECTED");
                 handleClientConnection();
             }
         }
@@ -126,25 +132,32 @@ public class ProxyDirectory implements DirectoryInterface {
             case SAVE: {
                 VersionFile file = (VersionFile) ois.readObject();
                 addFile(file);
+                logBuilder.addFile(request, file.toString());
                 break;
             }
             case MODIFY: {
                 VersionFile file = (VersionFile) ois.readObject();
                 modifyFile(file);
-                System.out.println(getFile(file.getName()));
+                logBuilder.addFile(request, file.toString());
                 break;
             }
             case REQUEST_FILE: {
                 String filename = (String) ois.readObject();
                 returnFile(filename, obs);
+                logBuilder.addFile(request, "Requested File:" + filename);
                 break;
             }
             case REQUEST_FILES: {
                 returnFiles(obs);
+                logBuilder.addFile(request, "");
                 break;
             }
             case END_CONNECTION: {
                 disconnect();
+                logBuilder.addConnections(request.toString());
+                log.buildChangeLog(logBuilder);
+                log.buildEventLog(logBuilder);
+                log.buildServerLog(logBuilder);
                 break;
             }
             default:
