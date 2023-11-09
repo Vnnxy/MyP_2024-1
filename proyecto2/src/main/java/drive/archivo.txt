@@ -1,2 +1,0 @@
-Las maquinas de Turing con oraculo
-Tienen degrees

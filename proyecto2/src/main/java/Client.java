@@ -29,7 +29,7 @@ public class Client {
      * 
      * @param ip   The ip address we will be using.
      * @param port The port of the server.
-     * @throws Exception
+     * @throws IOException
      */
     private void startConnection(String ip, int port) throws IOException {
         socket = new Socket(ip, port);
@@ -43,7 +43,7 @@ public class Client {
      * file.
      * 
      * @param file The new file we want to add.
-     * @throws Exception
+     * @throws IOException
      */
     public void addFile(File file) throws IOException {
         String filename = file.getName();
@@ -58,16 +58,17 @@ public class Client {
      * 
      * @param filename The name of the file we are modifying.
      * @param content  The content of the modified file.
-     * @throws Exception
+     * @throws IOException
      */
     public void editFile(String filename, String content) throws IOException {
         obs.writeObject(Protocol.REQUEST_FILE);
         obs.writeObject(filename);
         ModifiedFile modified = null;
+        java.util.Date date = new java.util.Date();
         try {
-            java.util.Date date = new java.util.Date();
             modified = new ModifiedFile((VersionFile) ois.readObject(), "Client", "at" + date);
         } catch (Exception e) {
+            throw new IOException();
         }
         modified.setContent(content);
         obs.writeObject(Protocol.MODIFY);
@@ -79,7 +80,7 @@ public class Client {
      * 
      * @param filename The name of the desired file.
      * @return The file that mathches the name
-     * @throws Exception If the file is not found or an IO Exception occurs.
+     * @throws IOException.
      */
     public String getContent(String filename) throws IOException {
         obs.writeObject(Protocol.REQUEST_FILE);
@@ -88,6 +89,7 @@ public class Client {
         try {
             file = (VersionFile) ois.readObject();
         } catch (Exception ioe) {
+            throw new IOException();
         }
         return file.getContent();
     }
@@ -135,6 +137,8 @@ public class Client {
             bReader.close();
             return content.toString();
         } catch (FileNotFoundException fne) {
+            // We don't do anything here because theres is nothing
+            // we can do if this happens.
         } catch (IOException ioe) {
             throw ioe;
         }
