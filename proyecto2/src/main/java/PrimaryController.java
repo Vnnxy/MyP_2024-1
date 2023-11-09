@@ -121,6 +121,9 @@ public class PrimaryController {
 	case "Spanish":
 	    this.language = new Spanish();
 	    break;
+	case "Japanese":
+	    this.language = new Japanese();
+	    break;
 	}
 	updateLanguage();
     }

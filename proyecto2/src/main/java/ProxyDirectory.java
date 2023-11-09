@@ -22,6 +22,7 @@ public class ProxyDirectory implements DirectoryInterface {
     /* The socket that conects with the client */
     private Socket clientSocket;
 
+    /* the log builder*/
     private LogBuilder logBuilder = new LogBuilder();
 
     /**

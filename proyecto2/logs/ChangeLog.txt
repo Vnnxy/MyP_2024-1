@@ -1,17 +1,9 @@
 ChangeLog
 Request # 1:REQUEST_FILES
-Request # 2:REQUEST_FILE Setup.java
-Request # 3:REQUEST_FILE Setup.java
-Request # 4:MODIFYName: Setup.java
+Request # 2:REQUEST_FILES
+Request # 3:REQUEST_FILE package-info.java
+Request # 4:REQUEST_FILE package-info.java
+Request # 5:MODIFYName: package-info.java
 Version: 1.0
 User: Client
-Changes: atWed Nov 08 20:33:31 CST 2023
-Request # 5:REQUEST_FILES
-Request # 6:REQUEST_FILE Setup.java
-Request # 7:REQUEST_FILE Setup.java
-Request # 8:MODIFYName: Setup.java
-Version: 2.0
-User: Client
-Changes: atWed Nov 08 20:33:31 CST 2023
-User: Client
-Changes: atWed Nov 08 20:33:40 CST 2023
+Changes: atWed Nov 08 21:23:29 CST 2023

@@ -37,7 +37,7 @@ public class LanguageController {
      * 
      */
     @FXML private void initialize() {
-	String[] l = {"English","Spanish"};
+	String[] l = {"English","Spanish", "Japanese"};
 	languageChoice.getItems().addAll(l);
 	languageChoice.setValue("English");
 	languageChoice.requestFocus();
