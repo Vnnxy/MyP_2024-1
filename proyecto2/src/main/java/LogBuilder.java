@@ -1,60 +1,44 @@
-import java.util.ArrayList;
-import java.util.HashMap;
 
+/**
+ * Class representing the LogBuilder that will create our Log.
+ * 
+ * @author equipo
+ */
 public class LogBuilder implements LogBuilderInterface {
 
-    private ArrayList<String> connections = new ArrayList<>();
-    private HashMap<Protocol, String> fileHistory = new HashMap<>();
-    private String logType = "";
-    boolean connection = false;
-    boolean files = false;
+    /* The log that will be built. */
+    private Log log;
 
-    public void setConnection() {
-        this.connection = true;
+    /* Constructor for the class */
+    public LogBuilder() {
+        this.log = new Log();
     }
 
-    public void setFiles() {
-        this.files = true;
+    /**
+     * Method that adds the corresponding file name and content to the log.
+     * 
+     * @param versionFileContent the content we want to add
+     */
+    public void addFile(String versionFileContent) {
+        log.addFile(versionFileContent);
     }
 
-    public void addFile(Protocol protocol, String versionFileContent) {
-        fileHistory.put(protocol, versionFileContent);
-    }
-
-    public void setFileMap(HashMap<Protocol, String> fileHistory) {
-        this.fileHistory = fileHistory;
-    }
-
+    /**
+     * Method that adds the corresponding connections to the log.
+     * 
+     * @param connection the connection we want to add
+     */
     public void addConnections(String connection) {
-        java.util.Date date = new java.util.Date();
-        connections.add(connection + "at" + date);
+        log.addConnections(connection);
     }
 
-    public void setConnectionList(ArrayList<String> connectionList) {
-        this.connections = connectionList;
-    }
-
-    public void setLog(String logType) {
-        this.logType = logType;
-    }
-
-    public String getlogType() {
-        return logType;
-    }
-
-    public String toString() {
-        StringBuffer sb = new StringBuffer();
-        sb.append(logType);
-        if (connection != false) {
-            for (String s : connections) {
-                sb.append(s);
-                sb.append("\n");
-            }
-        }
-        if (files != false) {
-            fileHistory.forEach((key, value) -> sb.append(key + ":" + value + "\n"));
-        }
-        return sb.toString();
+    /**
+     * Returns the log it has been building
+     * 
+     * @return The created log.
+     */
+    public Log getLog() {
+        return log;
     }
 
 }

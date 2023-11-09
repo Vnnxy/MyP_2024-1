@@ -1,53 +1,91 @@
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
-import java.io.IOException;
 
-import javafx.scene.shape.Path;
-
+/**
+ * Class representing the Log we will have.
+ * 
+ * @author equipo
+ */
 public class Log {
 
-    private final String changeLog = "ChangeLog";
-    private final String serverLog = "ServerLog";
-    private final String eventLog = "EventLog";
+    /* The ArrayList containing the connections of the Server and Client */
+    private ArrayList<String> connections = new ArrayList<>();
+    /* The HashMap containing the Requests and changes made by the Client */
+    private HashMap<Integer, String> fileHistory = new HashMap<>();
+    /* Boolean that determines the to string */
+    private boolean connection = false;
+    /* Boolean that determines the to string */
+    private boolean files = false;
+    /* A counter for the requests */
+    private int requestNumber = 1;
 
-    private void write(String logType, String content) {
-        String currentPath = System.getProperty("user.dir");
-        String dirName = currentPath + "/logs";
-        String fileName = logType + ".txt";
-        File actualFile = new File(dirName, fileName);
-        try {
-            BufferedWriter output = new BufferedWriter(new FileWriter(actualFile));
-            output.write(content);
-            output.close();
-        } catch (IOException ioe) {
+    /**
+     * Method that adds a file to the hashMap and it maps it to the request number.
+     * 
+     * @param versionFileContent The content and request
+     */
+    public void addFile(String versionFileContent) {
+        fileHistory.put(requestNumber, versionFileContent);
+        requestNumber++;
+    }
+
+    /**
+     * Methpd that adds a connection to the ArrayList. It concatenates the date of
+     * the connection.
+     * 
+     * @param connection The Connection made by the client/server
+     */
+    public void addConnections(String connection) {
+        java.util.Date date = new java.util.Date();
+        connections.add(connection + " at " + date);
+    }
+
+    /**
+     * Setter for the connection boolean
+     * 
+     * @param hasConnections true if the logType requires the connections
+     *                       representation, false otherwise.
+     */
+    public void setConnection(boolean hasConnections) {
+        connection = hasConnections;
+    }
+
+    /**
+     * Setter for the connection boolean
+     * 
+     * @param hasFiles true if the logType requires the files
+     *                 representation, false otherwise.
+     */
+    public void setFiles(boolean hasFiles) {
+        files = hasFiles;
+    }
+
+    /**
+     * Resets the booleans to false.
+     */
+    public void reset() {
+        files = false;
+        connection = false;
+    }
+
+    /**
+     * Method that formats and turns into a string by parsing each element of the
+     * data structures.
+     * 
+     * @return String representation of the log.
+     */
+    public String toString() {
+        StringBuffer sb = new StringBuffer();
+        if (connection != false) {
+            for (String s : connections) {
+                sb.append(s + " ");
+                sb.append("\n");
+            }
         }
-    }
-
-    public void buildChangeLog(LogBuilder logBuilder) {
-        logBuilder.setLog(changeLog);
-        logBuilder.setConnection();
-        write(changeLog, logBuilder.toString());
-    }
-
-    public void buildServerLog(LogBuilder logBuilder) {
-        logBuilder.setLog(serverLog);
-        logBuilder.setFiles();
-        write(serverLog, logBuilder.toString());
-    }
-
-    public void buildEventLog(LogBuilder logBuilder) {
-        logBuilder.setLog(eventLog);
-        logBuilder.setConnection();
-        logBuilder.setFiles();
-        write(eventLog, logBuilder.toString());
+        if (files != false) {
+            fileHistory.forEach((key, value) -> sb.append("Request # " + key + ":" + value + "\n"));
+        }
+        return sb.toString();
     }
 
 }

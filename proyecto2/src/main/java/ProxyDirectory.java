@@ -21,10 +21,6 @@ public class ProxyDirectory implements DirectoryInterface {
     private ServerSocket serverSocket;
     /* The socket that conects with the client */
     private Socket clientSocket;
-    /* The ip address of the server the directory is located */
-    private String ip;
-
-    private Log log = new Log();
 
     private LogBuilder logBuilder = new LogBuilder();
 
@@ -132,32 +128,37 @@ public class ProxyDirectory implements DirectoryInterface {
             case SAVE: {
                 VersionFile file = (VersionFile) ois.readObject();
                 addFile(file);
-                logBuilder.addFile(request, file.toString());
+                String requestText = request.toString() + "" + file.toString();
+                logBuilder.addFile(requestText);
                 break;
             }
             case MODIFY: {
                 VersionFile file = (VersionFile) ois.readObject();
                 modifyFile(file);
-                logBuilder.addFile(request, file.toString());
+                String requestText = request.toString() + "" + file.toString();
+                logBuilder.addFile(requestText);
                 break;
             }
             case REQUEST_FILE: {
                 String filename = (String) ois.readObject();
                 returnFile(filename, obs);
-                logBuilder.addFile(request, "Requested File:" + filename);
+                String requestText = request + " " + filename;
+                logBuilder.addFile(requestText);
                 break;
             }
             case REQUEST_FILES: {
                 returnFiles(obs);
-                logBuilder.addFile(request, "");
+                logBuilder.addFile(request.toString());
                 break;
             }
             case END_CONNECTION: {
                 disconnect();
                 logBuilder.addConnections(request.toString());
-                log.buildChangeLog(logBuilder);
-                log.buildEventLog(logBuilder);
-                log.buildServerLog(logBuilder);
+                Log log = logBuilder.getLog();
+                LogDirector logDir = new LogDirector(log);
+                logDir.buildChangeLog();
+                logDir.buildEventLog();
+                logDir.buildServerLog();
                 break;
             }
             default:
