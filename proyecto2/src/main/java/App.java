@@ -8,10 +8,20 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+/**
+ * Class that sets the application.
+ * 
+ * @author equipo.
+ */
 public class App extends Application {
-    
+    /* The primary fxml route*/
     private static final String GUI = "fxml/primary.fxml";
 
+    /**
+     * method that starts the application.
+     *
+     * @param stage  the Stage.
+     */
     @Override public void start(Stage stage) throws Exception {
 	ClassLoader cl = getClass().getClassLoader();
 	stage.setTitle("Project 2");

@@ -12,41 +12,60 @@ import javafx.scene.control.Alert;
 import java.io.IOException;
 import java.io.File;
 
+/**
+ * Controller for the primary view
+ */
 public class PrimaryController {
 
+    /* The change mennu item*/
     @FXML
     private MenuItem changeItem;
 
+    /* The connect menu item*/
     @FXML
     private MenuItem connectItem;
 
+    /* The connect Menu*/
     @FXML
     private Menu connectMenu;
 
+    /* The edit button*/
     @FXML
     private Button editButton;
 
+    /* The exit menu*/
     @FXML
     private Menu exitMenu;
 
+    /* The language menu*/
     @FXML
     private Menu languageMenu;
 
+    /* The load button*/
     @FXML
     private Button loadButton;
 
+    /*The logout menu item*/
     @FXML
     private MenuItem logoutItem;
 
+    /*The welcome text*/
     @FXML
     private Label welcomeText;
 
+    /* The Client*/
     private Client client;
 
+    /* The language*/
     private Language language;
 
+    /*The Stage*/
     private Stage stage;
 
+    /**
+     * Method to set up the controller
+     *
+     */
     @FXML private void initialize() {
 	language = new English();
 	loadButton.setDisable(true);
@@ -54,10 +73,19 @@ public class PrimaryController {
 	logoutItem.setDisable(true);
     }
 
+    /**
+     * Method to set the stage
+     *
+     * @param Stage the stage
+     */
     public void setStage(Stage stage){
 	this.stage = stage;
     }
 
+    /**
+     * Method to update the language
+     *
+     */
     private void updateLanguage(){
 	changeItem.setText(language.changeItem());
 	connectItem.setText(language.connectItem());
@@ -70,6 +98,11 @@ public class PrimaryController {
 	welcomeText.setText(language.welcomeText());
     }
 
+    /**
+     * Method to handle the change the language menu item
+     *
+     * @param ActionEvent the event
+     */
     @FXML
     private void changeLanguage(ActionEvent event) {
 	LanguageWindow window;
@@ -92,6 +125,10 @@ public class PrimaryController {
 	updateLanguage();
     }
 
+    /**
+     * Method to show an error window
+     *
+     */
     private void error(){
 	Alert alert = new Alert(AlertType.ERROR);
 	alert.setTitle("Error");
@@ -100,6 +137,11 @@ public class PrimaryController {
 	alert.showAndWait();
     }
 
+    /**
+     * Method to handle the connect menu item
+     *
+     * @param ActionEvent the event
+     */
     @FXML
     private void connect(ActionEvent event) {
 	ConnectWindow window;
@@ -125,6 +167,11 @@ public class PrimaryController {
 	}
     }
 
+    /**
+     * Method to handle the load file button
+     *
+     * @param ActionEvent the event
+     */
     @FXML
     private void loadFile(ActionEvent event) {
 	FileChooser fc = new FileChooser();
@@ -140,6 +187,11 @@ public class PrimaryController {
 	}
     }
 
+    /**
+     * Method to handle the logout menu item
+     *
+     * @param ActionEvent the event
+     */
     @FXML
     private void logout(ActionEvent event) {
 	try{
@@ -152,6 +204,11 @@ public class PrimaryController {
 	connectItem.setDisable(false);
     }
 
+    /**
+     * Method to handle the view and edit button
+     *
+     * @param ActionEvent the event
+     */
     @FXML
     private void viewAndEdit(ActionEvent event) {
 	ListWindow window;

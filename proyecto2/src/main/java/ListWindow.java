@@ -5,12 +5,24 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Class to build a List file Window
+ */
 public class ListWindow extends Stage {
 
+    /* The FXML*/
     private static final String FXML = "fxml/list.fxml";
 
+    /* The controller*/
     private ListController controller;
 
+    /**
+     * Method to build a new window
+     *
+     * @param Stage the stage
+     * @param Language the lannguage
+     * @param Client the client
+     */
     public ListWindow(Stage stage, Language language, Client client) throws IOException {
 	ClassLoader cl = getClass().getClassLoader();
 	FXMLLoader loader = new FXMLLoader(cl.getResource(FXML));

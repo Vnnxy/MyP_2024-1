@@ -6,12 +6,23 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+/**
+ * Class that builds the language window
+ */
 public class LanguageWindow extends Stage {
 
+    /* The FXMl*/
     private static final String FXML = "fxml/language.fxml";
 
+    /* The controller*/
     private LanguageController controller;
 
+    /**
+     * Method to create the window 
+     * 
+     * @param Stage the stage
+     * @param Language the language
+     */
     public LanguageWindow(Stage stage, Language language) throws IOException {
 	ClassLoader cl = getClass().getClassLoader();
 	FXMLLoader loader = new FXMLLoader(cl.getResource(FXML));
@@ -28,6 +39,11 @@ public class LanguageWindow extends Stage {
 	setResizable(false);	
     }
 
+    /**
+     * Method to get the selected language
+     * 
+     * @return String the choice
+     */
     public String getChoice(){
 	return controller.getChoice();
     }
