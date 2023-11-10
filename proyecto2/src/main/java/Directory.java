@@ -18,7 +18,7 @@ import java.io.FileWriter;
  *
  * @autor equipo.
  */
-public class Directory implements DirectoryInterface {
+public class Directory implements DirectoryInterface, Iterable<String> {
 
     /**
      * The hashmap containing the files encoded as a String

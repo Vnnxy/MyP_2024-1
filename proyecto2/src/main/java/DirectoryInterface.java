@@ -5,7 +5,7 @@ import java.util.Iterator;
  *
  * @author equipo.
  */
-public interface DirectoryInterface extends Iterable<String> {
+public interface DirectoryInterface  {
 
     /**
      * Method to return a given file encoded as a String
@@ -30,12 +30,4 @@ public interface DirectoryInterface extends Iterable<String> {
      * @param newFile the contents of the new file
      */
     public void modifyFile(VersionFile file) throws Exception; 
-
-    /** 
-     * Returns an iterator over the files of the directory
-     *
-     * @return Iterator of the directory
-     */
-    @Override
-    public Iterator<String> iterator(); 
 }

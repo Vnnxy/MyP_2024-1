@@ -82,20 +82,11 @@ public class ProxyDirectory implements DirectoryInterface {
     }
 
     /**
-     * Returns an iterator over the files of the directory
-     *
-     * @return Iterator of the directory
-     */
-    public Iterator<String> iterator() {
-        return directory.iterator();
-    }
-
-    /**
      * Private method to return the iterator of the
-     * directory through the socket
+     * directory through the socket using an ArrayList
      */
     private void returnFiles(ObjectOutputStream obs) {
-        Iterator<String> iter = iterator();
+        Iterator<String> iter = directory.iterator();
         ArrayList<String> files = new ArrayList<>();
         while (iter.hasNext()) {
             String filename = iter.next();
