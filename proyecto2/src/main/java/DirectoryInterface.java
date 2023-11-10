@@ -1,5 +1,3 @@
-import java.util.Iterator;
-
 /**
  * Interface that represents a Directory.
  *

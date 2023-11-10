@@ -1,7 +1,14 @@
-import java.io.*;
 import java.net.Socket;
 import java.util.Iterator;
 import java.util.ArrayList;
+import java.io.ObjectOutputStream;
+import java.io.ObjectInputStream;
+import java.io.IOException;
+import java.io.File;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+
 
 /**
  * Class that contains the client.

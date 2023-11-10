@@ -1,4 +1,3 @@
-import java.io.Serializable;
 /**
  * Abstract class that represents a File in the directory.
  *

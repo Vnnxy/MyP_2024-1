@@ -1,5 +1,3 @@
-import java.io.Serializable;
-
 /**
  * Class for the decorator of a modified file
  *
