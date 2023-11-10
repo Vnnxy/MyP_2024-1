@@ -61,6 +61,7 @@ public class Directory implements DirectoryInterface {
                         files.put(filename, new CoreFile(filename, ""));
                     });
         } catch (IOException ioe) {
+            System.out.println("Error: failed to read files of the directory");
         }
     }
 

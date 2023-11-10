@@ -17,8 +17,6 @@ public class ProxyDirectory implements DirectoryInterface {
 
     /* The directory the client will be interacting with */
     private Directory directory;
-    /* The server */
-    private ServerSocket serverSocket;
     /* The socket that conects with the client */
     private Socket clientSocket;
 
@@ -44,9 +42,13 @@ public class ProxyDirectory implements DirectoryInterface {
     /**
      * Private method to return the file through the socket
      */
-    private void returnFile(String filename, ObjectOutputStream obs) throws Exception {
-        VersionFile file = getFile(filename);
-        obs.writeObject(file);
+    private void returnFile(String filename, ObjectOutputStream obs) {
+        try {
+            VersionFile file = getFile(filename);
+            obs.writeObject(file);
+        } catch (Exception e) {
+            System.out.println("Failed to return the file");
+        }
     }
 
     /**
@@ -54,8 +56,12 @@ public class ProxyDirectory implements DirectoryInterface {
      *
      * @param file The file to save in the directory
      */
-    public void addFile(VersionFile file) throws Exception {
-        directory.addFile(file);
+    public void addFile(VersionFile file) {
+        try {
+            directory.addFile(file);
+        } catch (Exception e) {
+            System.out.println("Error: failed to save a file in the directory");
+        }
     }
 
     /**
@@ -63,8 +69,12 @@ public class ProxyDirectory implements DirectoryInterface {
      *
      * @param file The file to save in the directory
      */
-    public void modifyFile(VersionFile file) throws Exception {
-        directory.modifyFile(file);
+    public void modifyFile(VersionFile file) {
+        try {
+            directory.modifyFile(file);
+        } catch (Exception e) {
+            System.out.println("Error: failed to modify a file");
+        }
     }
 
     /**
@@ -90,6 +100,7 @@ public class ProxyDirectory implements DirectoryInterface {
         try {
             obs.writeObject(files);
         } catch (IOException ioe) {
+            System.out.println("Error: failed to send the files to the client");
         }
     }
 
@@ -99,24 +110,29 @@ public class ProxyDirectory implements DirectoryInterface {
     public void startConnection(int port) throws Exception {
         try (ServerSocket serverSocket = new ServerSocket(port)) {
             while (true) {
-                System.out.println("Esperando conexiones");
+                System.out.println("Waiting connections...");
                 clientSocket = serverSocket.accept();
                 logBuilder.addConnections("CLIENT CONNECTED");
                 handleClientConnection();
             }
-        }
+        } 
     }
 
     /**
      * Auxiliar method to handre the client request
      */
-    private void handleClientConnection() throws Exception {
-        System.out.println("Cliente conectado");
-        ObjectOutputStream obs = new ObjectOutputStream(clientSocket.getOutputStream());
-        obs.flush();
-        ObjectInputStream ois = new ObjectInputStream(clientSocket.getInputStream());
-        while (!clientSocket.isClosed()) {
-            identifyRequest(ois, obs);
+    private void handleClientConnection() {
+        System.out.println("Client connected");
+        try {
+            ObjectOutputStream obs = new ObjectOutputStream(clientSocket.getOutputStream());
+            obs.flush();
+            ObjectInputStream ois = new ObjectInputStream(clientSocket.getInputStream());
+            while (!clientSocket.isClosed()) {
+                identifyRequest(ois, obs);
+            }
+        } catch (Exception e) {
+            System.out.println("Error: client disconnected");
+            logBuilder.addConnections("Error: error in the connection between the client and the server");
         }
     }
 
@@ -163,7 +179,7 @@ public class ProxyDirectory implements DirectoryInterface {
                 break;
             }
             default:
-                System.out.println("Error: la opcion no existe");
+                System.out.println("Error: message not in the protocol");
         }
     }
 
@@ -173,7 +189,7 @@ public class ProxyDirectory implements DirectoryInterface {
     public void disconnect() {
         try {
             clientSocket.close();
-            System.out.println("Cliente desconectado");
+            System.out.println("Client disconnected");
         } catch (IOException ioe) {
         }
     }

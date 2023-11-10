@@ -16,12 +16,17 @@ public class HostServer {
     private final String dirName = "drive";
     /* The port where the socket will be initialized. */
     private int port;
-
+    /* The name of the log */
     private final String logName = "logs";
 
     /** Public constructor for the server */
-    public HostServer(int port) {
-        this.port = port;
+    public HostServer(String port) throws Exception {
+        try {
+            this.port = isValidPort(port);
+        } catch (Exception e) {
+            System.out.println("Error: port invalid, cannot initialize the server");
+            throw e;
+        }
         findDir();
         String dirPath = new File(dirName).getAbsolutePath();
         directory = new Directory(dirPath + "/");
@@ -33,9 +38,26 @@ public class HostServer {
      * 
      * @return ProxyDirectory of the server's directory.
      */
-    public void host() throws Exception {
+    public void host() {
         ProxyDirectory proxy = new ProxyDirectory(directory);
-        proxy.startConnection(port);
+        try {
+            proxy.startConnection(port);
+        } catch (Exception e) {
+            System.out.println("Error: error in initializing the server");
+        }
+    }
+
+    /**
+     * Private auxiliary method to check if the port is valid.
+     */
+    private int isValidPort(String port) throws Exception {
+        int validPort;
+        try {
+            validPort = Integer.parseInt(port);
+        } catch (Exception e) {
+            throw e;
+        }
+        if (validPort < 1024) {throw new Exception();} else {return validPort;}
     }
 
     /**
