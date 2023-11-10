@@ -20,8 +20,12 @@ public class ProxyDirectory implements DirectoryInterface {
     /* The socket that conects with the client */
     private Socket clientSocket;
 
-    /* the log builder*/
-    private LogBuilder logBuilder = new LogBuilder();
+    /* the event log builder */
+    private EventLogBuilder eventLogBuilder = new EventLogBuilder();
+    /* the server log builder */
+    private ServerLogBuilder serverLogBuilder = new ServerLogBuilder();
+    /* the change log builder */
+    private ChangeLogBuilder changeLogBuilder = new ChangeLogBuilder();
 
     /**
      * Constructor of the proxy.
@@ -112,10 +116,11 @@ public class ProxyDirectory implements DirectoryInterface {
             while (true) {
                 System.out.println("Waiting connections...");
                 clientSocket = serverSocket.accept();
-                logBuilder.addConnections("CLIENT CONNECTED");
+                serverLogBuilder.addConnections("CLIENT CONNECTED");
+                eventLogBuilder.addConnections("CLIENT CONNECTED");
                 handleClientConnection();
             }
-        } 
+        }
     }
 
     /**
@@ -132,7 +137,8 @@ public class ProxyDirectory implements DirectoryInterface {
             }
         } catch (Exception e) {
             System.out.println("Error: client disconnected");
-            logBuilder.addConnections("Error: error in the connection between the client and the server");
+            serverLogBuilder.addConnections("Error: error in the connection between the client and the server");
+            eventLogBuilder.addConnections("Error: error in the connection between the client and the server");
         }
     }
 
@@ -146,36 +152,39 @@ public class ProxyDirectory implements DirectoryInterface {
                 VersionFile file = (VersionFile) ois.readObject();
                 addFile(file);
                 String requestText = request.toString() + "" + file.toString();
-                logBuilder.addFile(requestText);
+                changeLogBuilder.addFile(requestText);
+                eventLogBuilder.addFile(requestText);
                 break;
             }
             case MODIFY: {
                 VersionFile file = (VersionFile) ois.readObject();
                 modifyFile(file);
                 String requestText = request.toString() + "" + file.toString();
-                logBuilder.addFile(requestText);
+                changeLogBuilder.addFile(requestText);
+                eventLogBuilder.addFile(requestText);
                 break;
             }
             case REQUEST_FILE: {
                 String filename = (String) ois.readObject();
                 returnFile(filename, obs);
                 String requestText = request + " " + filename;
-                logBuilder.addFile(requestText);
+                changeLogBuilder.addFile(requestText);
+                eventLogBuilder.addFile(requestText);
                 break;
             }
             case REQUEST_FILES: {
                 returnFiles(obs);
-                logBuilder.addFile(request.toString());
+                changeLogBuilder.addFile(request.toString());
+                eventLogBuilder.addFile(request.toString());
                 break;
             }
             case END_CONNECTION: {
                 disconnect();
-                logBuilder.addConnections(request.toString());
-                Log log = logBuilder.getLog();
-                LogDirector logDir = new LogDirector(log);
-                logDir.buildChangeLog();
-                logDir.buildEventLog();
-                logDir.buildServerLog();
+                eventLogBuilder.addConnections(request.toString());
+                serverLogBuilder.addConnections(request.toString());
+                eventLogBuilder.getLog().toString();
+                serverLogBuilder.getLog().toString();
+                changeLogBuilder.getLog().toString();
                 break;
             }
             default:

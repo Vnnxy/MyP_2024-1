@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.io.File;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * Class representing the Log we will have.
@@ -9,83 +13,86 @@ import java.util.HashMap;
 public class Log {
 
     /* The ArrayList containing the connections of the Server and Client */
-    private ArrayList<String> connections = new ArrayList<>();
+    private ArrayList<String> connections = null;
     /* The HashMap containing the Requests and changes made by the Client */
-    private HashMap<Integer, String> fileHistory = new HashMap<>();
-    /* Boolean that determines the to string */
-    private boolean connection = false;
-    /* Boolean that determines the to string */
-    private boolean files = false;
-    /* A counter for the requests */
-    private int requestNumber = 1;
+    private HashMap<Integer, String> fileHistory = null;
+    /* The logType */
+    private String logType;
 
     /**
-     * Method that adds a file to the hashMap and it maps it to the request number.
+     * Public constructor for the Log class.
      * 
-     * @param versionFileContent The content and request
+     * @param connections The connections made by the server.
+     * @param fileHistory The Changes made to files.
+     * @param logType     The name of the LogFile.
      */
-    public void addFile(String versionFileContent) {
-        fileHistory.put(requestNumber, versionFileContent);
-        requestNumber++;
+    public Log(ArrayList<String> connections, HashMap<Integer, String> fileHistory, String logType) {
+        this.connections = connections;
+        this.fileHistory = fileHistory;
+        this.logType = logType;
     }
 
     /**
-     * Methpd that adds a connection to the ArrayList. It concatenates the date of
-     * the connection.
+     * Public constructor for the Log class.
      * 
-     * @param connection The Connection made by the client/server
+     * @param connections The connections made by the server.
+     * @param logType     The name of the LogFile.
      */
-    public void addConnections(String connection) {
-        java.util.Date date = new java.util.Date();
-        connections.add(connection + " at " + date);
+    public Log(ArrayList<String> connections, String logType) {
+        this.connections = connections;
+        this.logType = logType;
     }
 
     /**
-     * Setter for the connection boolean
+     * Public constructor for the Log class.
      * 
-     * @param hasConnections true if the logType requires the connections
-     *                       representation, false otherwise.
+     * @param fileHistory The Changes made to files.
+     * @param logType     The name of the LogFile.
      */
-    public void setConnection(boolean hasConnections) {
-        connection = hasConnections;
-    }
-
-    /**
-     * Setter for the connection boolean
-     * 
-     * @param hasFiles true if the logType requires the files
-     *                 representation, false otherwise.
-     */
-    public void setFiles(boolean hasFiles) {
-        files = hasFiles;
-    }
-
-    /**
-     * Resets the booleans to false.
-     */
-    public void reset() {
-        files = false;
-        connection = false;
+    public Log(HashMap<Integer, String> fileHistory, String logType) {
+        this.fileHistory = fileHistory;
+        this.logType = logType;
     }
 
     /**
      * Method that formats and turns into a string by parsing each element of the
-     * data structures.
+     * data structures. This method also invokes the private method @link{write},
+     * writing the buffer into a file.
      * 
      * @return String representation of the log.
      */
     public String toString() {
         StringBuffer sb = new StringBuffer();
-        if (connection != false) {
+        if (logType.equals("ServerLog") || logType.equals("EventLog")) {
             for (String s : connections) {
                 sb.append(s + " ");
                 sb.append("\n");
             }
         }
-        if (files != false) {
+        if (logType.equals("ChangeLog") || logType.equals("EventLog")) {
             fileHistory.forEach((key, value) -> sb.append("Request # " + key + ":" + value + "\n"));
         }
+        write(sb.toString());
         return sb.toString();
+    }
+
+    /**
+     * Method that writes the desired file in the specified directory.
+     * 
+     * @param logType The name of the file
+     * @param content The content of the file
+     */
+    private void write(String content) {
+        String currentPath = System.getProperty("user.dir");
+        String dirName = currentPath + "/logs";
+        String fileName = logType + ".txt";
+        File actualFile = new File(dirName, fileName);
+        try {
+            BufferedWriter output = new BufferedWriter(new FileWriter(actualFile));
+            output.write(content);
+            output.close();
+        } catch (IOException ioe) {
+        }
     }
 
 }

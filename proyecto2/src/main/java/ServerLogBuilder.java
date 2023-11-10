@@ -1,18 +1,16 @@
+import java.util.ArrayList;
 
 /**
- * Class representing the LogBuilder that will create our Log.
+ * Class representing the ServerLogBuilder that will create our ServerLog.
  * 
  * @author equipo
  */
-public class LogBuilder implements LogBuilderInterface {
+public class ServerLogBuilder implements LogBuilderInterface {
 
-    /* The log that will be built. */
-    private Log log;
-
-    /* Constructor for the class */
-    public LogBuilder() {
-        this.log = new Log();
-    }
+    /* The ArrayList containing the connections of the Server and Client */
+    private ArrayList<String> connections = new ArrayList<>();
+    /* Log type */
+    private final String logType = "ServerLog";
 
     /**
      * Method that adds the corresponding file name and content to the log.
@@ -20,7 +18,7 @@ public class LogBuilder implements LogBuilderInterface {
      * @param versionFileContent the content we want to add
      */
     public void addFile(String versionFileContent) {
-        log.addFile(versionFileContent);
+
     }
 
     /**
@@ -29,7 +27,8 @@ public class LogBuilder implements LogBuilderInterface {
      * @param connection the connection we want to add
      */
     public void addConnections(String connection) {
-        log.addConnections(connection);
+        java.util.Date date = new java.util.Date();
+        connections.add(connection + " at " + date);
     }
 
     /**
@@ -38,7 +37,7 @@ public class LogBuilder implements LogBuilderInterface {
      * @return The created log.
      */
     public Log getLog() {
-        return log;
+        return new Log(connections, logType);
     }
 
 }
