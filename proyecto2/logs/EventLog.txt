@@ -1,36 +1,9 @@
-CLIENT CONNECTED at Thu Nov 09 19:10:12 CST 2023 
-END_CONNECTION at Thu Nov 09 19:11:39 CST 2023 
-Request # 1:SAVEName: FiraCode-Light.woff
-Version: 0.0
-Request # 2:REQUEST_FILES
-Request # 3:REQUEST_FILE FiraCode-Light.woff
-Request # 4:REQUEST_FILE FiraCode-Light.woff
-Request # 5:MODIFYName: FiraCode-Light.woff
+CLIENT CONNECTED at Thu Nov 09 19:18:18 CST 2023 
+Error: error in the connection between the client and the server at Thu Nov 09 19:18:26 CST 2023 
+Request # 1:REQUEST_FILES
+Request # 2:REQUEST_FILE Setup.java
+Request # 3:REQUEST_FILE Setup.java
+Request # 4:MODIFYName: Setup.java
 Version: 1.0
 User: Client
-Changes: atThu Nov 09 19:10:48 CST 2023
-Request # 6:SAVEName: README.txt
-Version: 0.0
-Request # 7:REQUEST_FILES
-Request # 8:REQUEST_FILE README.txt
-Request # 9:REQUEST_FILE README.txt
-Request # 10:MODIFYName: README.txt
-Version: 1.0
-User: Client
-Changes: atThu Nov 09 19:11:01 CST 2023
-Request # 11:REQUEST_FILES
-Request # 12:REQUEST_FILE README.txt
-Request # 13:REQUEST_FILE README.txt
-Request # 14:MODIFYName: README.txt
-Version: 2.0
-User: Client
-Changes: atThu Nov 09 19:11:01 CST 2023
-User: Client
-Changes: atThu Nov 09 19:11:08 CST 2023
-Request # 15:REQUEST_FILES
-Request # 16:REQUEST_FILE Setup.java
-Request # 17:REQUEST_FILE Setup.java
-Request # 18:MODIFYName: Setup.java
-Version: 1.0
-User: Client
-Changes: atThu Nov 09 19:11:37 CST 2023
+Changes: atThu Nov 09 19:18:24 CST 2023

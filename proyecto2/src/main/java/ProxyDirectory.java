@@ -139,6 +139,8 @@ public class ProxyDirectory implements DirectoryInterface {
             System.out.println("Error: client disconnected");
             serverLogBuilder.addConnections("Error: error in the connection between the client and the server");
             eventLogBuilder.addConnections("Error: error in the connection between the client and the server");
+            serverLogBuilder.getLog().toString();
+            eventLogBuilder.getLog().toString();
         }
     }
 

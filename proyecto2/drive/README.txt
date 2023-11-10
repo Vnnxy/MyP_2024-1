@@ -480,15 +480,5 @@ In a workspace:
 5. Happy coding!
 
 
-Cloud9
-------
-
-In a workspace:
-
-1. Click Cloud9, then Preferences (or use keyboard shortcut CTRL + ,)
-2. Go to Themes, then click on You can also style Cloud9 by editing your stylesheet (this will open a blank styles.css file in the C9 editor)
-3. Copy & paste the following:
-
-===============
-
+Cl
 See https://github.com/tonsky/FiraCode/wiki/Troubleshooting

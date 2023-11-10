@@ -1,2 +1,2 @@
-CLIENT CONNECTED at Thu Nov 09 19:10:12 CST 2023 
-END_CONNECTION at Thu Nov 09 19:11:39 CST 2023 
+CLIENT CONNECTED at Thu Nov 09 19:18:18 CST 2023 
+Error: error in the connection between the client and the server at Thu Nov 09 19:18:26 CST 2023 
