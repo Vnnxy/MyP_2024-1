@@ -5,19 +5,18 @@
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.equipo </groupId>
-  <artifactId>practica</artifactId>
-  <version>ICC</version>
+  <artifactId>proyecto</artifactId>
+  <version>2</version>
   <packaging>jar</packaging>
 
-  <name>Práctica 9</name>
+  <name>Proyecto 2</name>
   <description>
-    Práctica 9 de Introducción a Ciencias de la Computación: Interfaces
-    gráficas.
+    Proyecto 2 Modelado y Programacion
   </description>
-  <url>https://aztlan.fciencias.unam.mx/gitlab/2023-1-icc/practica9</url>
+  <url>https://github.com/Vnnxy/MyP_2024-1/tree/fullStack</url>
   <organization>
-    <name>Canek Peláez Valdés</name>
-    <url>https://aztlan.fciencias.unam.mx/~canek/</url>
+    <name>Equipo:equipo</name>
+    <url>https://github.com/Vnnxy/MyP_2024-1/tree/fullStack</url>
   </organization>
 
   <properties>
@@ -90,7 +89,7 @@
 
     </plugins>
 
-    <finalName>practica9</finalName>
+    <finalName>proyecto2</finalName>
   </build>
 
   <reporting>
@@ -106,8 +105,8 @@
           <author>false</author>
           <version>false</version>
           <use>true</use>
-          <windowtitle>Introducción a Ciencias de la Computación</windowtitle>
-          <doctitle><![CDATA[<h1>Introducción a Ciencias de la Computación</h1>]]></doctitle>
+          <windowtitle>Modelado y Programación</windowtitle>
+          <doctitle><![CDATA[<h1>Modelado y pprogramación</h1>]]></doctitle>
         </configuration>
       </plugin>
 

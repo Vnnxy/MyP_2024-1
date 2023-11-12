@@ -1,9 +1,36 @@
-CLIENT CONNECTED at Thu Nov 09 19:18:18 CST 2023 
-Error: error in the connection between the client and the server at Thu Nov 09 19:18:26 CST 2023 
+CLIENT CONNECTED at Sun Nov 12 17:08:42 CST 2023 
+END_CONNECTION at Sun Nov 12 17:08:54 CST 2023 
+CLIENT CONNECTED at Sun Nov 12 17:09:14 CST 2023 
+END_CONNECTION at Sun Nov 12 17:17:20 CST 2023 
+CLIENT CONNECTED at Sun Nov 12 17:21:20 CST 2023 
+Error: error in the connection between the client and the server at Sun Nov 12 17:21:25 CST 2023 
 Request # 1:REQUEST_FILES
-Request # 2:REQUEST_FILE Setup.java
-Request # 3:REQUEST_FILE Setup.java
-Request # 4:MODIFYName: Setup.java
+Request # 2:REQUEST_FILE README.txt
+Request # 3:REQUEST_FILE README.txt
+Request # 4:MODIFYName: README.txt
 Version: 1.0
 User: Client
-Changes: atThu Nov 09 19:18:24 CST 2023
+Changes: atSun Nov 12 17:12:08 CST 2023
+Request # 5:REQUEST_FILES
+Request # 6:REQUEST_FILE FiraCode-Light.woff
+Request # 7:REQUEST_FILE FiraCode-Light.woff
+Request # 8:MODIFYName: FiraCode-Light.woff
+Version: 1.0
+User: Client
+Changes: atSun Nov 12 17:15:07 CST 2023
+Request # 9:REQUEST_FILES
+Request # 10:REQUEST_FILE Setup.java
+Request # 11:REQUEST_FILE Setup.java
+Request # 12:MODIFYName: Setup.java
+Version: 1.0
+User: Client
+Changes: atSun Nov 12 17:15:18 CST 2023
+Request # 13:SAVEName: hola.txt
+Version: 0.0
+Request # 14:REQUEST_FILES
+Request # 15:REQUEST_FILE hola.txt
+Request # 16:REQUEST_FILE hola.txt
+Request # 17:MODIFYName: hola.txt
+Version: 1.0
+User: Client
+Changes: atSun Nov 12 17:16:53 CST 2023
