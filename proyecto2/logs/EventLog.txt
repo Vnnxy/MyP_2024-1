@@ -1,0 +1,11 @@
+CLIENT CONNECTED at Mon Nov 13 18:01:37 CST 2023 
+END_CONNECTION at Mon Nov 13 18:02:32 CST 2023 
+Request # 1:SAVEName: Captura de pantalla 2023-11-13 a la(s) 17.08.40.png
+Version: 0.0
+Request # 2:REQUEST_FILES
+Request # 3:REQUEST_FILE Captura de pantalla 2023-11-13 a la(s) 17.08.40.png
+Request # 4:REQUEST_FILE Captura de pantalla 2023-11-13 a la(s) 17.08.40.png
+Request # 5:MODIFYName: Captura de pantalla 2023-11-13 a la(s) 17.08.40.png
+Version: 1.0
+User: Client
+Changes: atMon Nov 13 18:02:20 CST 2023
