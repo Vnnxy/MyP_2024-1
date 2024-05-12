@@ -31,7 +31,7 @@ This will show a prompt inside the terminal asking for a port number. Please use
 
 The server has to be running at all times when using the client.
 
-![server launch](/media/server.gif)
+![server launch](./media/server.gif)
 
 ## To run the client:
 
